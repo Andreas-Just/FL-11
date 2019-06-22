@@ -155,6 +155,7 @@
     border: 2px solid deepskyblue;
   }
 }
+
  @media print {
    html,
    body {
@@ -250,5 +251,4 @@
      text-decoration: none;
      color: black;
    }
-
  }
