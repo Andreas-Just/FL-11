@@ -155,3 +155,100 @@
     border: 2px solid deepskyblue;
   }
 }
+ @media print {
+   html,
+   body {
+     text-align: center;
+     background-color: white;
+   }
+
+   .tm-sidebar,
+   .tm-team-img,
+   .boxes,
+   .carousel-indicators,
+   section:last-of-type {
+     display: none;
+   }
+
+   .tm-content-box {
+     margin: 0;
+   }
+
+   .tm-main-content,
+   .tm-banner,
+   .padding-medium,
+   .slide {
+     padding: 0 20px;
+   }
+
+   .flex-item {
+     max-width: 100%;
+     margin: auto;
+   }
+
+   h2 {
+     margin-bottom: 1rem;
+     font-weight: 300;
+     text-transform: uppercase;
+     color: lightskyblue;
+   }
+
+   p {
+     padding: 0 15px;
+   }
+
+   .tm-banner,
+   .blocks {
+     margin-bottom: 40px;
+   }
+
+   .tm-banner-text {
+     letter-spacing: 5px;
+     word-spacing: 10px;
+   }
+
+   .heading,
+   .slide {
+     margin: 25px 0 15px;
+   }
+
+   .heading h2 {
+     color: #76cdd7;
+   }
+
+   .heading ol {
+     margin: auto;
+     padding: 0;
+     max-width: 280px;
+     list-style: none;
+     line-height: 1.4;
+     color: black;
+   }
+
+   .heading li {
+     margin-bottom: 10px;
+   }
+
+   .heading li:nth-child(odd) {
+     text-align: left;
+   }
+
+   .heading li:nth-child(even) {
+     text-align: right;
+   }
+
+   .heading li::first-letter {
+     color: #76cdd7;
+     font-size: 25px;
+   }
+
+   .heading a {
+     color: black;
+   }
+
+   .heading a:hover {
+     text-decoration: none;
+     color: black;
+   }
+
+ }
