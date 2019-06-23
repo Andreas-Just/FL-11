@@ -192,6 +192,7 @@
      font-weight: 300;
      text-transform: uppercase;
      color: lightskyblue;
+     -webkit-print-color-adjust: exact;
    }
 
    p {
@@ -213,17 +214,12 @@
      margin: 25px 0 15px;
    }
 
-   .heading h2 {
-     color: #76cdd7;
-   }
-
    .heading ol {
      margin: auto;
      padding: 0;
      max-width: 280px;
      list-style: none;
      line-height: 1.4;
-     color: black;
    }
 
    .heading li {
@@ -239,16 +235,13 @@
    }
 
    .heading li::first-letter {
-     color: #76cdd7;
      font-size: 25px;
+     color: #76cdd7;
+     -webkit-print-color-adjust: exact;
    }
 
    .heading a {
      color: black;
-   }
-
-   .heading a:hover {
-     text-decoration: none;
-     color: black;
+     -webkit-print-color-adjust: exact;
    }
  }
