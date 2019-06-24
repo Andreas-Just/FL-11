@@ -1,1 +1,232 @@
-// Write your styles here
+@function getColor($color) {
+  @return map_get($colors, $color);
+}
+
+@function getFont($bgColor: transparent) {
+  @if $bgColor == transparent {
+    @return map_get($fonts, fontHeader);
+  }
+  @return map_get($fonts, fontBody);
+}
+
+@mixin indent($margin: 0, $padding: 0) {
+  margin: $margin;
+  padding: $padding;
+}
+
+//@mixin font-family($bg: transparent) {
+//  @if $bg == #ffffff {
+//    font-family: getFont($fonts, fontH);
+//  } @else if $bg == #21232e {
+//    font-family: map_get($fonts, fontF);;
+//  } @else {
+//    font-family: map_get($fonts, fontSSP);
+//  }
+//}
+
+@mixin lines($bottom: 0, $left: 0, $width: 100%, $height: 13px) {
+  position: absolute;
+  bottom: $bottom;
+  left: $left;
+  z-index: -1;
+  display: block;
+  width: $width;
+  height: $height;
+  background-color: getColor(lineColor);
+  content: '';
+}
+
+html,
+body {
+  @include indent;
+  font-family: getFont(map_get($colors, bgColor));
+  color: getColor(color);
+  background-color: getColor(bgColor);
+}
+
+.header {
+  width: 100%;
+  height: 710px;
+  background-color: white;
+  background-image: $bgHeader;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 0 0 40% 0;
+}
+
+.header-wrap {
+  margin-left: 10%;
+  padding-top: 20px;
+}
+
+.landing-logo {
+  display: flex;
+  align-items: flex-start;
+
+  p {
+    @include indent;
+    margin-left: 15px;
+    font-size: 23px;
+    font-weight: bold;
+    line-height: 1.2;
+    text-align: center;
+  }
+  span {
+    display: block;
+    font-size: 10px;
+  }
+}
+
+.header_heading {
+  @include indent;
+  position: relative;
+  margin-top: 70px;
+  width: 50%;
+  font-size: 72px;
+  font-weight: 700;
+  font-family: getFont();
+  line-height: 1;
+  z-index: 1;
+
+  &::after {
+    @include lines(0, 0, 300px, 25px);
+  }
+}
+
+.header_text {
+  margin-top: 35px;
+  white-space: pre-line;
+  font-size: 15px;
+  line-height: 1.6;
+  word-spacing: 3.5px;
+}
+
+.header_button {
+  margin-top: 40px;
+  padding: 15px 43px 12px;
+  color: #f2f3f7;
+  font-size: 18px;
+  font-family: getFont();
+  font-weight: 600;
+  background-color: getColor(btnColor);
+  border: none;
+  border-radius: 3px;
+}
+
+.section {
+  position: relative;
+}
+
+.section_text {
+  @include indent;
+  position: relative;
+  margin-top: 36px;
+  font-size: 41px;
+  font-weight: 600;
+  font-family: getFont();
+  text-align: center;
+  z-index: 1;
+
+  &::after {
+    @include lines(8px, 50.5%, 186px);
+  }
+}
+
+.section_card_wrap {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 27px;
+}
+
+.section_card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px;
+  padding: 20px;
+  width: 350px;
+  text-align: center;
+  color: white;
+  background-color: getColor(cardColor);
+  border-radius: 5px;
+}
+
+.section_card_img {
+  width: 100%;
+  height: 235px;
+  border-radius: 5px;
+}
+
+.section_card_heading {
+  @include indent;
+  position: relative;
+  flex-grow: 1;
+  margin-top: 13px;
+  font-size: 24px;
+  font-weight: 600;
+  font-family: getFont();
+  color: white;
+  z-index: 1;
+
+  .section_card_underline {
+    @include lines();
+    top: 18px;
+  }
+}
+
+.section_card_text {
+  @include indent;
+  flex-grow: 1;
+  align-self: center;
+  margin-top: 16px;
+  font-size: 16px;
+  line-height: 1.5;
+  opacity: 0.7;
+}
+
+.section_banner {
+  position: absolute;
+  bottom: -268px;
+  left: 50%;
+  display: flex;
+  justify-content: space-between;
+  width: 945px;
+  border-radius: 5px;
+  color: white;
+  background: $gradient;
+  z-index: 11;
+  transform: translateX(-50%);
+}
+
+.section_banner_text_wrap {
+  margin: 25px 0 38px 100px;
+}
+
+.section_banner_heading {
+  @include indent;
+  position: relative;
+  font-size: 30px;
+  font-weight: bold;
+  font-family: getFont();
+  color: getColor(color);
+  z-index: 1;
+}
+
+.section_banner_text {
+  @include indent;
+  margin-top: 16px;
+}
+
+.section_banner_button {
+  @extend .header_button;
+  align-self: center;
+  margin-top: 0;
+  margin-right: 98px;
+}
+
+.footer {
+  margin-top: 270px;
+}
