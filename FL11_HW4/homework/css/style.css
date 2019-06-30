@@ -1,12 +1,3 @@
-/*
-#097774 button
-#FFFFFF
-#F3F3F3 bg fon
-#F0F0F0
-#000000
-#E8E8E8
-#9E9E9E Epam
-*/
 html,
 body {
   box-sizing: border-box;
@@ -58,9 +49,8 @@ figure {
 }
 .container {
   background-color: #f3f3f3;
-  /*max-width: 905px;*/
-  /*min-width: 2400px;*/
-  /*margin: 0 auto;*/
+  min-width: 900px;
+  margin: 0 auto;
 }
 .likes,
 .caption {
@@ -100,13 +90,12 @@ figure {
   background-color: #016562;
   box-shadow:
     inset 0 0 0.5vw 0.2vw #e8e8e8,
-    0 0 0.5vw rgba(0, 0, 0, 0.4);
+    0 0 0.5vw rgba(0, 0, 0, 0.3);
 }
 .btn:active {
   color: #fff;
   box-shadow:
-    inset 0 0 0.3vw 0.2vw #fff,
-    0 0 0.3vw rgba(0, 0, 0, 0.3);
+    inset 0 0 0.3vw 0.2vw #fff;
 }
 .btn:focus {
   outline: none;
@@ -114,7 +103,7 @@ figure {
 .header {
   width: 100%;
   color: white;
-  background: url(../img/sample2.jpg) no-repeat -12vw 0;
+  background: #000000 url(../img/sample2.jpg) no-repeat -12vw 0;
   background-size: calc(100% + 24vw);
 }
 .user {
@@ -164,9 +153,6 @@ figure {
   transition: all 400ms ease-in-out;
 }
 .site__link:hover {
-  padding: 1vw 6.1vw 1.2vw;
-  font-size: 1.4vw;
-  word-spacing: -0.4vw;
   color: black;
   background-color: #f0f0f0;
   outline: 0.2vw dashed black;
@@ -358,4 +344,144 @@ figure {
 }
 .footer__list a {
   color: black;
+}
+@media screen and (min-device-width: 1900px){
+  .likes {
+    top: 2.6vw;
+    right: 2.6vw;
+    padding: 0.8vw 2.9vw 0.8vw 1.5vw;
+    font-size: 1.8vw;
+  }
+  .likes::after {
+    top: 0.8vw;
+    right: 1.4vw;
+  }
+  .caption {
+    bottom: 2.8vw;
+    left: 2.7vw;
+    font-size: 1.8vw;
+  }
+  .user {
+    padding-top: 5vw;
+    font-size: 2vw;
+  }
+  .user__logo {
+    margin-left: 6.5vw;
+    letter-spacing: 0.3vw;
+  }
+  .user__item {
+    margin-right: 7vw;
+  }
+  .header__heading {
+    margin-top: 26vw;
+    font-size: 6.5vw;
+    letter-spacing: 1vw;
+  }
+  .header__heading span {
+    font-size: 11.6vw;
+  }
+  .header__slogan {
+    font-size: 1.8vw;
+  }
+  .site__list {
+    margin-top: 24.4vw;
+    margin-bottom: 16.5vw;
+    width: 123.7vw;
+  }
+  .site__link {
+    padding: 1.9vw 10.2vw;
+    font-size: 2vw;
+    outline-width: 0.2vw;
+  }
+  .header__text--right {
+    margin-bottom: 8.5vw;
+    margin-right: 6vw;
+    width: 70vw;
+    font-size: 1.8vw;
+  }
+  .header__text--left {
+    position: relative;
+    top: -1.7vw;
+    width: 50vw;
+    margin: -3.8vw 0 7.5vw 6.5vw;
+    font-size: 2.28vw;
+  }
+  .articles__wrap {
+     margin: -2.5vw auto 3.4vw;
+     width: 143vw;
+  }
+  .articles__title {
+    margin-bottom: 4.65vw;
+    font-size: 3.05vw;
+  }
+  .favorites__inner {
+    width: 71.4vw;
+  }
+  .favorites__inner--img {
+    height: 38.8vw;
+  }
+  .favorites__inner--text {
+    margin-top: 3vw;
+  }
+  .favorites__text {
+    margin-bottom: 6.25vw;
+    width: 59.7vw;
+    font-size: 1.82vw;
+  }
+  .favorites:nth-of-type(2) {
+    margin-top: -2.9vw;
+  }
+  .news {
+    padding-top: 4.6vw;
+  }
+  .news__list {
+    margin-bottom: 6.6vw;
+    width: 139.7vw;
+  }
+  .news__item {
+    width: 29.2vw;
+    height: 38.85vw;
+  }
+  .news__explore {
+    padding: 0.8vw 9.4vw;
+    font-size: 2vw;
+  }
+  .news__btn {
+    margin-bottom: 4.75vw;
+    padding: 1.9vw 14.9vw;
+    font-size: 1.85vw;
+  }
+  .subscribe__text {
+    margin: 5.8vw auto 1.75vw;
+    width: 150vw;
+    font-size: 1.825vw;
+  }
+  .subscribe label {
+    font-size: 3.06vw;
+  }
+  .subscribe__form {
+    margin-right: 3.25vw;
+    margin-bottom: 6vw;
+  }
+  .subscribe input {
+    margin-left: 1.25vw;
+    padding: 1.15vw;
+    font-size: 1.85vw;
+  }
+  .subscribe input[type="email"] {
+    margin-left: 2.6vw;
+    padding-top: 1.4vw;
+    width: 19.5vw;
+    font-size: 1.76vw;
+  }
+  .footer {
+    padding-top: 2.2vw;
+    font-size: 1.8vw;
+  }
+  .footer__nav {
+    margin-bottom: 3.6vw;
+  }
+  .footer__list {
+    width: 31.6vw;
+  }
 }
