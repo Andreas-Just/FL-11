@@ -31,6 +31,9 @@ a {
   text-decoration: none;
   color: #fff;
 }
+a:hover {
+  color: #b8b8b8;
+}
 ul {
   margin: 0;
   padding: 0;
@@ -60,6 +63,7 @@ figure {
   display: flex;
   flex-direction: column;
   min-width: 320px;
+  max-width: 1400px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -75,7 +79,7 @@ figure {
 .header__logo {
   margin: 101px 0 61px;
   text-align: center;
-  font-size: 37px;
+  font-size: 2.31rem;
 }
 .header__logo span {
   color: #d12767;
@@ -137,12 +141,15 @@ figure {
 }
 .post__text {
   margin-bottom: 50px;
-  font-size: 0.98rem;
+  font-size: 0.97rem;
+  font-weight: 300;
   line-height: 1.5;
+  opacity: 0.6;
 }
 .post footer {
   padding-bottom: 24px;
   text-align: center;
+  opacity: 0.3;
 }
 .post__time  {
   font-size: 1.9rem;
@@ -159,7 +166,7 @@ figure {
   padding-top: 36px;
 }
 .novelty {
-  margin-bottom: 20px;
+  margin-bottom: 22px;
   background-color: #fff;
 }
 .novelty__link {
@@ -177,7 +184,8 @@ figure {
 .novelty__text {
   margin-top: 11px;
   padding-bottom: 35px;
-  font-size: 0.93rem;
+  font-size: 0.91rem;
+  font-weight: 300;
   line-height: 1.58;
 }
 .footer {
@@ -186,6 +194,8 @@ figure {
   color: rgba(255, 255, 255, 0.6);
   background-color: #162b4d;
   font-size: 0.975rem;
+  font-weight: 300;
+  opacity: 0.7;
 }
 .footer__left {
   margin: 35px auto 4px;
@@ -204,13 +214,76 @@ figure {
 
 /* Reduce the width of the @media expression. */
 @media screen and (min-width: 481px) {
-  .header__list {
-    display: block;
-    background-color: gray;
+  .header__toggle-nav::before {
+    top: 27px;
+    left: 28px;
+  }
+  .header__logo {
+    margin: 96px 0 58px;
+    font-size: 2.25rem;
+  }
+  .page-main {
+    display: flex;
+  }
+  .posts {
+    width: 246%;
+    margin-right: 20px;
+  }
+  .post__link:nth-child(2) {
+    width: 83%;
+  }
+  .post__title {
+    margin-bottom: 20px;
+    font-size: 2.97rem;
+  }
+  .post__text {
+    font-size: 0.92rem;
+  }
+  .post footer {
+    padding-bottom: 22px;
+  }
+  .post__time {
+    font-size: 1.7rem;
+  }
+  .post__time span {
+    font-size: 3.15rem;
+  }
+  .post:last-child .post__link:nth-child(2) {
+    padding-top: 42px;
+  }
+  .news {
+    width: 172%;
+  }
+  .novelty__link:nth-child(2) {
+    width: 78%;
+  }
+  .novelty__title {
+    font-size: 1.65rem;
+    line-height: 1.1;
+  }
+  .novelty__text {
+    font-size: 0.868rem;
+    line-height: 1.6;
+  }
+  .footer {
+    margin-top: 17px;
+    font-size: 0.94rem;
+  }
+  .footer__slogan {
+    font-size: 0.95rem;
+  }
+  .footer__right {
+    margin: 0 auto 30px;
+    width: 17%;
   }
 }
 
 /* Reduce the width of the @media expression. */
-@media screen and (min-width: 768px) {
-
+@media screen and (min-width: 769px) {
+  .header__toggle-nav {
+    display: none;
+  }
+  .header__list {
+    display: block;
+  }
 }
