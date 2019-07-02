@@ -1,10 +1,3 @@
-:root {
-  --bg-color--dark: #0b192f;
-  --bg-color--header: #162b4d;
-  --link: #fff;
-  --link--hover: #b8b8b8;
-  --bg-footer-color: #162b4d;;
-}
 html,
 body {
   margin: 0;
@@ -44,6 +37,7 @@ ul {
 }
 h1,
 h2,
+h3,
 p,
 figure {
   margin: 0;
@@ -222,9 +216,7 @@ figure {
   width: 26%;
 }
 
-
-/* Reduce the width of the @media expression. */
-@media screen and (min-width: 481px) {
+@media screen and (min-width: 480px) {
   .header__toggle-nav::before {
     top: 27px;
     left: 28px;
@@ -289,8 +281,7 @@ figure {
   }
 }
 
-/* Reduce the width of the @media expression. */
-@media screen and (min-width: 769px) {
+@media screen and (min-width: 768px) {
   .header {
     margin-bottom: 25px;
   }
@@ -430,5 +421,4 @@ figure {
     margin: -2px 13px 0 0;
     width: 12%;
   }
-
 }
