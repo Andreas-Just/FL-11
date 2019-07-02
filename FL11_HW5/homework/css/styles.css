@@ -34,6 +34,9 @@ a {
 a:hover {
   color: #b8b8b8;
 }
+a:not([href]):hover {
+  color: #fff;
+}
 ul {
   margin: 0;
   padding: 0;
@@ -133,6 +136,9 @@ figure {
 .novelty__link {
   position: relative;
   display: block;
+}
+.post__link:nth-child(1):hover img {
+  opacity: 0.5;
 }
 .post__link:nth-child(2) {
   margin: 35px auto 0;
@@ -291,11 +297,9 @@ figure {
   .header__nav {
     flex-direction: row;
     justify-content: space-between;
-    margin-top: 26px;
-    margin-bottom: 37px;
   }
   .header__logo {
-    margin: 0 0 0 26px;
+    margin: 26px 0 37px 26px;
     font-size: 2.7rem;
   }
   .header__toggle-nav {
@@ -303,15 +307,18 @@ figure {
   }
   .header__list {
     display: flex;
-    margin-top: 18px;
-    margin-right: 90px;
-    font-size: 1.4rem;
+    flex-wrap: wrap;
+    margin-right: 4.55vw;
+    font-size: 1.59vw;
+    font-weight: 300;
   }
-  .header__item {
-    margin-left: 50px;
+  .header__item a {
+    display: block;
+    padding: 44px 25px 0;
+    height: 100%;
   }
-  .header__item:first-child {
-    margin-left: 0;
+  .header__item a:hover {
+    background-color: #283d5f;
   }
   .posts {
     width: 540%;
@@ -329,7 +336,7 @@ figure {
     width: 50%;
   }
   .post__link:nth-child(2) {
-    margin-top: 45px;
+    margin-top: 3.3vw;
     width: 41.5%;
   }
   .post:nth-child(odd) .post__link:nth-child(2) {
@@ -337,8 +344,8 @@ figure {
   }
   .post__title {
     margin-bottom: 25px;
-    width: 80%;
-    font-size: 3.65rem;
+    width: 78%;
+    font-size: 4.15vw;
   }
   .post:nth-child(odd) .post__title {
     margin-left: auto;
@@ -347,7 +354,7 @@ figure {
   .post__text {
     margin-bottom: 0;
     width: 80%;
-    font-size: 1.13rem;
+    font-size: 1.291vw;
     line-height: 1.55;
   }
   .post:nth-child(odd) .post__text {
@@ -356,22 +363,22 @@ figure {
   }
   .post footer {
     position: absolute;
-    top: -32px;
+    top: -2.3vw;
     padding: 0;
   }
   .post:nth-child(odd) footer {
-    left: -23px;
+    left: -1.65vw;
     text-align: right;
   }
   .post:nth-child(even) footer {
-    right: -32px;
+    right: -2.3vw;
   }
   .post__time {
-    font-size: 2rem;
+    font-size: 2.35vw;
   }
   .post__time span {
     margin-bottom: 5px;
-    font-size: 3.7rem;
+    font-size: 4.25vw;
   }
   .post:last-child .post__link:nth-child(2) {
     margin-left: 44px;
@@ -396,20 +403,20 @@ figure {
     width: 76%;
   }
   .novelty__title {
-    margin-top: 36px;
-    font-size: 2rem;
+    margin-top: 2.6vw;
+    font-size: 2.29vw;
   }
   .novelty__text {
-    margin-top: 13px;
-    padding-bottom: 42px;
-    font-size: 1.06rem;
+    margin-top: 0.9vw;
+    padding-bottom: 2.7vw;
+    font-size: 1.22vw;
   }
   .footer {
     display: flex;
     justify-content: space-between;
     margin-top: 25px;
     padding: 36px 0;
-    font-size: 1.15rem;
+    font-size: 1.32vw;
     text-align: left;
   }
   .footer__left {
