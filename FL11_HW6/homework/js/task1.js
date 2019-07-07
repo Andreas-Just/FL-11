@@ -7,7 +7,7 @@ for (let index = 0; index < coordNames.length; index++) {
   const current = prompt(`Input the coordinate ${coordNames[index]}: `, '');
 
   if (isNaN(+current) || !isFinite(+current) || current === null || current === '') {
-    alert(`«${current}» - it is not number, please press F5 and enter number`);
+    alert(`“${current}” - it is not figure, please press F5 and inject a figure`);
     break;
   } else {
     coord[coordNames[index]] = +current;
@@ -18,6 +18,3 @@ console.log(
   Math.abs(coord['a1'] + coord['b1'] - coord['c1'] - coord['c1']) < err &&
   Math.abs(coord['a2'] + coord['b2'] - coord['c2'] - coord['c2']) < err
 );
-
-
-
