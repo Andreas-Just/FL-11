@@ -1,14 +1,14 @@
 const adminData ={
   email: 'admin@gmail.com',
-  password: 'AdminPass',
+  password: 'AdminPass'
 };
 const userData ={
   email: 'user@gmail.com',
-  password: 'UserPass',
+  password: 'UserPass'
 };
 const minNumberCharacters ={
   emailLength: 6,
-  passwordLength: 5,
+  passwordLength: 5
 };
 
 const email = prompt('Please, enter your e-mail (the one you indicated when registering in the system): ', '');
@@ -38,6 +38,8 @@ if (email === null) {
             alert('You have successfully changed your password');
           } else if (newPasswordAgain !== newPassword) {
             alert('You wrote the wrong password');
+          } else {
+            alert('Canceled');
           }
         }
       } else {
