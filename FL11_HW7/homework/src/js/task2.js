@@ -1,7 +1,7 @@
 const prize = {
   standardPayoff: 100,
   currentPayoff: null,
-  totalPayoff: 0,
+  totalPayoff: 0
 };
 const gameOptions = {
   isGame: false,
@@ -12,12 +12,12 @@ const gameOptions = {
   startingRange: 8,
   rangeStep: 4,
   randomInteger: null,
-  playNumber: null,
+  playNumber: null
 };
 const magicNumbers = {
   zero: 0,
   one: 1,
-  oneHundred: 100,
+  oneHundred: 100
 };
 
 gameOptions.isGame = confirm(`Do you want to play a game?`);
@@ -31,9 +31,9 @@ while (gameOptions.isGame) {
 
     attempts: for (let i = magicNumbers.one; i <= gameOptions.numberAttempts; i++) {
       gameOptions.currentAttempts = i;
-      prize.currentPayoff = (i === gameOptions.numberAttempts)
-        ? (prize.standardPayoff / gameOptions.rangeStep)
-        : (prize.standardPayoff / i);
+      prize.currentPayoff = i === gameOptions.numberAttempts
+        ? prize.standardPayoff / gameOptions.rangeStep
+        : prize.standardPayoff / i;
       console.log(prize.currentPayoff);
       gameOptions.playNumber = prompt(
         `Choose a roulette pocket number from 0 to ${gameOptions.startingRange} \n
