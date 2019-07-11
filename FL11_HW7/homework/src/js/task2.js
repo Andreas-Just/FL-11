@@ -7,7 +7,6 @@ const gameOptions = {
   isGame: false,
   continueGame: true,
   numberAttempts: 3,
-  numberGames: 0,
   currentAttempts: null,
   startingRange: 8,
   rangeStep: 4,
@@ -22,17 +21,13 @@ gameOptions.isGame = confirm(`Do you want to play a game?`);
 
 while (gameOptions.isGame) {
   if (gameOptions.continueGame) {
-    gameOptions.numberGames++;
     gameOptions.randomInteger = Math.floor(Math.random() * (gameOptions.startingRange + 1));
-    console.log(gameOptions.randomInteger);
-
 
     attempts: for (let i = 1; i <= gameOptions.numberAttempts; i++) {
       gameOptions.currentAttempts = i;
       prize.currentPayoff = i === gameOptions.numberAttempts
         ? prize.standardPayoff / gameOptions.rangeStep
         : prize.standardPayoff / i;
-      console.log(prize.currentPayoff);
       gameOptions.playNumber = prompt(
         `Choose a roulette pocket number from 0 to ${gameOptions.startingRange} \n
         Attempts left: ${gameOptions.currentAttempts} \n
@@ -59,7 +54,6 @@ while (gameOptions.isGame) {
     } else {
       prize.totalPayoff = 0;
       prize.standardPayoff = magicNumbers.oneHundred;
-      gameOptions.numberGames = 1;
       gameOptions.startingRange = gameOptions.rangeStep + gameOptions.rangeStep;
       alert(`Thank you for your participation. Your prize is: ${prize.totalPayoff} $`);
       gameOptions.isGame = confirm(`Do you want to play a game?`);
@@ -70,7 +64,6 @@ while (gameOptions.isGame) {
     if (confirm(`Do you want to play a game?`)) {
       prize.totalPayoff = 0;
       prize.standardPayoff = magicNumbers.oneHundred;
-      gameOptions.numberGames = 1;
       gameOptions.startingRange = gameOptions.rangeStep + gameOptions.rangeStep;
       gameOptions.continueGame = true;
     } else {
