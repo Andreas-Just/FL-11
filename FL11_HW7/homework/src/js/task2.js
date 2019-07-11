@@ -15,8 +15,6 @@ const gameOptions = {
   playNumber: null
 };
 const magicNumbers = {
-  zero: 0,
-  one: 1,
   oneHundred: 100
 };
 
@@ -25,11 +23,11 @@ gameOptions.isGame = confirm(`Do you want to play a game?`);
 while (gameOptions.isGame) {
   if (gameOptions.continueGame) {
     gameOptions.numberGames++;
-    gameOptions.randomInteger = Math.floor(Math.random() * (gameOptions.startingRange + magicNumbers.one));
+    gameOptions.randomInteger = Math.floor(Math.random() * (gameOptions.startingRange + 1));
     console.log(gameOptions.randomInteger);
 
 
-    attempts: for (let i = magicNumbers.one; i <= gameOptions.numberAttempts; i++) {
+    attempts: for (let i = 1; i <= gameOptions.numberAttempts; i++) {
       gameOptions.currentAttempts = i;
       prize.currentPayoff = i === gameOptions.numberAttempts
         ? prize.standardPayoff / gameOptions.rangeStep
@@ -59,9 +57,9 @@ while (gameOptions.isGame) {
         `Congratulation, you won! Your prize is: ${prize.totalPayoff} $. Do you want to continue?`
       );
     } else {
-      prize.totalPayoff = magicNumbers.zero;
+      prize.totalPayoff = 0;
       prize.standardPayoff = magicNumbers.oneHundred;
-      gameOptions.numberGames = magicNumbers.one;
+      gameOptions.numberGames = 1;
       gameOptions.startingRange = gameOptions.rangeStep + gameOptions.rangeStep;
       alert(`Thank you for your participation. Your prize is: ${prize.totalPayoff} $`);
       gameOptions.isGame = confirm(`Do you want to play a game?`);
@@ -70,9 +68,9 @@ while (gameOptions.isGame) {
   } else {
     alert(`Thank you for your participation. Your prize is: ${prize.totalPayoff} $`);
     if (confirm(`Do you want to play a game?`)) {
-      prize.totalPayoff = magicNumbers.zero;
+      prize.totalPayoff = 0;
       prize.standardPayoff = magicNumbers.oneHundred;
-      gameOptions.numberGames = magicNumbers.one;
+      gameOptions.numberGames = 1;
       gameOptions.startingRange = gameOptions.rangeStep + gameOptions.rangeStep;
       gameOptions.continueGame = true;
     } else {
