@@ -1,12 +1,11 @@
 const units = new Map([
-  ['day', 24 * 60],
+  ['day', 1440],
   ['hour', 60],
   ['minute', 1]
 ]);
 
 const formatTime = (min) => {
   let result = '';
-
   units.forEach( (value, key) => {
     const time = Math.floor(min / value);
     result += ' ' + time + ' ' + key + '(s)';
