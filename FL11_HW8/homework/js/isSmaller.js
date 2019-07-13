@@ -1,5 +1,3 @@
-function isSmaller(a, b) {
-  return a < b;
-}
+const isSmaller = (a, b) => a < b;
 
 console.log(isSmaller(5, 7));
