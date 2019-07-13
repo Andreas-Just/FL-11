@@ -1,13 +1,14 @@
 function reverseNumber(num) {
-  let result = num < 0 ? '-' : '';
+  const sign = num < 0 ? -1 : 1;
+  let result = 0;
   num = Math.abs(num);
 
   while(num > 0){
-    result = result + (num % 10);
-    num = parseInt(num / 10);
+    result = 10 * result + num % 10;
+    num = Math.floor(num / 10);
   }
 
-  return +result;
+  return result * sign;
 }
 
 console.log(reverseNumber(123));
