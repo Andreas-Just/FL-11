@@ -1,3 +1,12 @@
+const numbers = {
+  two: 2,
+  three: 3,
+  five: 5,
+  eight: 8,
+  twentyFour: 24,
+  sixty: 60,
+  thousand: 1000
+};
 // task 0
 const getNumbers = (str) => {
   const regExp = /\d/g;
@@ -27,8 +36,8 @@ const findTypes = (...args) => {
   return result;
 };
 
-console.log(findTypes('number', 5, 5, {}));
-console.log(findTypes(null, 5, 'hello', [], getNumbers));
+console.log(findTypes('number', numbers.five, numbers.five, {}));
+console.log(findTypes(null, numbers.five, 'hello', [], getNumbers));
 
 
 
@@ -39,9 +48,10 @@ const executeforEach = (arr, callback) => {
   }
 };
 
-executeforEach([1, 2, 3], function(el) {
-  console.log(el)
-}); // logs 1 2 3
+executeforEach(
+  [1, numbers.two, numbers.three],
+  (el) => console.log(el)
+);
 
 // task 3
 const mapArray = (arr, callback) => {
@@ -51,8 +61,11 @@ const mapArray = (arr, callback) => {
 };
 
 console.log(
-  mapArray([2, 5, 8], el => el + 3) // returns [5, 8, 11]
-);
+  mapArray(
+    [numbers.two, numbers.five, numbers.eight],
+    el => el + numbers.three
+  )
+); // returns [5, 8, 11]
 
 // task 4
 const filterArray = (arr, callback) => {
@@ -62,8 +75,11 @@ const filterArray = (arr, callback) => {
 };
 
 console.log(
-  filterArray([2, 5, 8], el => el > 3) // returns [5, 8]
-);
+  filterArray(
+    [numbers.two, numbers.five, numbers.eight],
+    el => el > numbers.three
+  )
+); // returns [5, 8]
 
 // task 5
 const showFormattedDate = (date) => {
@@ -86,11 +102,84 @@ console.log(canConvertToDate('2016-03-18T00:00:00')); // true
 // task 7
 const daysBetween = (dateBefore, dateAfter) => {
   const diff = Math.abs(dateAfter - dateBefore);
-  const day = 1000 * 60 * 60 * 24;
+  const day = numbers.thousand * numbers.sixty * numbers.sixty * numbers.twentyFour;
   return Math.ceil( diff / day);
 };
 
 console.log(
-  daysBetween(new Date('2016-03-18T00:00:00'), new Date('2016-04-19T00:00:00'))
+  daysBetween(
+    new Date('2016-03-18T00:00:00'),
+    new Date('2016-04-19T00:00:00')
+  )
 ); // 32
 
+// task 8
+const person = [
+  {
+    '_id': '5b5e3168c6bf40f2c1235cd6',
+    'index': 0,
+    'birthday': '2016-03-18T00:00:00',
+    'eyeColor': 'green',
+    'name': 'Stein',
+    'favoriteFruit': 'apple'
+  },
+  {
+    '_id': '5b5e3168e328c0d72e4f27d8',
+    'index': 1,
+    'birthday': '1991-02-11T00:00:00',
+    'eyeColor': 'blue',
+    'name': 'Cortez',
+    'favoriteFruit': 'strawberry'
+  },
+  {
+    '_id': '5b5e3168cc79132b631c666a',
+    'index': 2,
+    'birthday': '1984-04-17T00:00:00',
+    'eyeColor': 'blue',
+    'name': 'Suzette',
+    'favoriteFruit': 'apple'
+  },
+  {
+    '_id': '5b5e31682093adcc6cd0dde5',
+    'index': 3,
+    'birthday': '1994-04-17T00:00:00',
+    'eyeColor': 'green',
+    'name': 'George',
+    'favoriteFruit': 'banana'
+  }
+];
+
+const getAmountOfAdultPeople = (arr) => {
+  const years18InDays = 6574;
+  return filterArray(arr, item =>
+    daysBetween(new Date(item.birthday), new Date()) > years18InDays
+  ).length;
+};
+
+console.log(getAmountOfAdultPeople(person)); // returns 3;
+
+// task 9
+const keys = (obj) => {
+  const result = [];
+  for (let item in obj) {
+    if (obj.hasOwnProperty(item)) {
+      result.push(item);
+    }
+  }
+  return result;
+};
+
+console.log(keys(numbers)); // returns [“keyOne”, “keyTwo”, “keyThree”]
+
+// task 10
+const values = (obj) => {
+  const result = [];
+  for (let item in obj) {
+    if (obj.hasOwnProperty(item)) {
+      result.push(obj[item]);
+    }
+  }
+  return result;
+};
+
+console.log(values(numbers)); // returns [1, 2, 3]
