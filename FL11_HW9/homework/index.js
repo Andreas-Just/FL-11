@@ -7,6 +7,7 @@ const numbers = {
   sixty: 60,
   thousand: 1000
 };
+
 // task 0
 const getNumbers = (str) => {
   const regExp = /\d/g;
@@ -18,9 +19,8 @@ const getNumbers = (str) => {
   }
   return result;
 };
-
-console.log(getNumbers('string')); // returns []
-console.log(getNumbers('n1um3ber95')); // returns [1,3,9,5]
+console.log(getNumbers('string'));
+console.log(getNumbers('n1um3ber95'));
 
 // task 1
 const findTypes = (...args) => {
@@ -35,11 +35,12 @@ const findTypes = (...args) => {
   }
   return result;
 };
-
-console.log(findTypes('number', numbers.five, numbers.five, {}));
-console.log(findTypes(null, numbers.five, 'hello', [], getNumbers));
-
-
+console.log(
+  findTypes('number', null, numbers.five, getNumbers('um3ber95')[1], {})
+);
+console.log(
+  findTypes(getNumbers('string'), numbers.five, 'hello', [], getNumbers)
+);
 
 // task 2
 const executeforEach = (arr, callback) => {
@@ -47,7 +48,6 @@ const executeforEach = (arr, callback) => {
     callback(item);
   }
 };
-
 executeforEach(
   [1, numbers.two, numbers.three],
   (el) => console.log(el)
@@ -59,13 +59,12 @@ const mapArray = (arr, callback) => {
   executeforEach(arr,el => result.push(callback(el)));
   return result;
 };
-
 console.log(
   mapArray(
     [numbers.two, numbers.five, numbers.eight],
     el => el + numbers.three
   )
-); // returns [5, 8, 11]
+);
 
 // task 4
 const filterArray = (arr, callback) => {
@@ -73,13 +72,12 @@ const filterArray = (arr, callback) => {
   executeforEach(arr,el => callback(el) ? result.push(el) : null);
   return result;
 };
-
 console.log(
   filterArray(
     [numbers.two, numbers.five, numbers.eight],
     el => el > numbers.three
   )
-); // returns [5, 8]
+);
 
 // task 5
 const showFormattedDate = (date) => {
@@ -87,7 +85,6 @@ const showFormattedDate = (date) => {
   const dateFormat = date.toLocaleDateString('en-US', variant);
   return `'Date: ${dateFormat} ${date.getFullYear()}'`;
 };
-
 console.log(showFormattedDate(new Date('2019-01-27T01:10:00')));
 console.log(showFormattedDate(new Date('2019-02-29T01:10:00')));
 
@@ -95,9 +92,8 @@ console.log(showFormattedDate(new Date('2019-02-29T01:10:00')));
 const canConvertToDate = (str) => {
   return !isNaN(Date.parse(str));
 };
-
-console.log(canConvertToDate('2016-13-18T00:00:00')); // false
-console.log(canConvertToDate('2016-03-18T00:00:00')); // true
+console.log(canConvertToDate('2016-13-18T00:00:00'));
+console.log(canConvertToDate('2016-03-18T00:00:00'));
 
 // task 7
 const daysBetween = (dateBefore, dateAfter) => {
@@ -105,13 +101,12 @@ const daysBetween = (dateBefore, dateAfter) => {
   const day = numbers.thousand * numbers.sixty * numbers.sixty * numbers.twentyFour;
   return Math.ceil( diff / day);
 };
-
 console.log(
   daysBetween(
     new Date('2016-03-18T00:00:00'),
     new Date('2016-04-19T00:00:00')
   )
-); // 32
+);
 
 // task 8
 const person = [
@@ -155,8 +150,7 @@ const getAmountOfAdultPeople = (arr) => {
     daysBetween(new Date(item.birthday), new Date()) > years18InDays
   ).length;
 };
-
-console.log(getAmountOfAdultPeople(person)); // returns 3;
+console.log(getAmountOfAdultPeople(person));
 
 // task 9
 const keys = (obj) => {
@@ -168,8 +162,7 @@ const keys = (obj) => {
   }
   return result;
 };
-
-console.log(keys(numbers)); // returns [“keyOne”, “keyTwo”, “keyThree”]
+console.log(keys(numbers));
 
 // task 10
 const values = (obj) => {
@@ -181,5 +174,4 @@ const values = (obj) => {
   }
   return result;
 };
-
-console.log(values(numbers)); // returns [1, 2, 3]
+console.log(values(numbers));
