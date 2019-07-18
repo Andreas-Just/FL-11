@@ -1,41 +1,38 @@
-const father = {
-  firstName: 'Nick',
-  lastName: 'Hrynko',
+const User = (() => {
+  let role = 'user1';
 
-  get fullName() {
-    return this.firstName + ' ' + this.lastName;
-  },
+  return class {
+    name = 'Andre';
+
+    test() {
+      console.log(role);
+    }
+  };
+})();
+
+const andre = new User();
+andre.test();
+console.log(andre.name);
+console.log(andre.role);
+
+// variant 2
+const factoryFromMisha = () => {
+  let role = 'user2';
+
+  return class {
+    name = 'Misha';
+
+    test() {
+      console.log(role);
+    }
+  };
 };
 
-/*
-User.prototype = father;
-function User(name) {
-  // this = {};
-  // this.__proto__ = father;
+const User2 = factoryFromMisha();
+const misha = new User2();
 
-  this.firstName = name;
-  // return this;
-}
+misha.test();
+console.log(misha.name);
+console.log(misha.role);
 
-class User {
-  constructor(name) {
-    // this = {};
-    this.firstName = name;
-    this.__proto__ = father;
-    // return this;
-  }
-}
-*/
 
-class User2 {
-  constructor(name) {
-    //  this.__proto__ = father;
-    this.firstName = name;
-    // Object.setPrototypeOf(this, father);
-  }
-  sayHi() {}
-}
-Object.setPrototypeOf(User2.prototype, father);
-
-const me = new User2('Misha');
-console.log(me);
