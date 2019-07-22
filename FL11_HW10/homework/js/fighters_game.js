@@ -89,12 +89,11 @@ battle(john, jim);
 john.logCombatHistory();
 jim.logCombatHistory();
 
-john.heal(70);
-jim.heal(140);
-console.log(john.getHealth());
-console.log(jim.getHealth());
+const magicNumberHP = {oneHundredThirty: 130, fifty: 50};
+john.heal(magicNumberHP.fifty);
+jim.heal(magicNumberHP.oneHundredThirty);
+console.log(`John HP: ${john.getHealth()}, Jim HP: ${jim.getHealth()}`);
 
 battle(john, jim);
 john.logCombatHistory();
 jim.logCombatHistory();
-
