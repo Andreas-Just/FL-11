@@ -33,7 +33,7 @@ class TodoApp extends Component {
     this.on('click', 'add-todo-item', (event) => {
       const input = this.findElement('new-todo-item');
 
-      if (this._items.length >= 5 || input.value === '') {
+      if (this._items.length >= 10 || input.value === '') {
         return;
       }
       this._lastCreatedItemId++;
@@ -64,6 +64,16 @@ class TodoApp extends Component {
         item.text = input.value
       }
       item.hidden = !item.hidden;
+      this._render();
+    });
+
+    this.on('click', 'delete-todo-item', (event) => {
+      const itemElement = event.target.closest('[data-element="todo-item"]');
+      const delIndex = +itemElement.dataset.itemId;
+
+      this._lastCreatedItemId--;
+      this._items.splice(delIndex - 1, 1);
+      this._items.forEach((item, index) => item.id = index + 1);
       this._render();
     });
   }
@@ -110,7 +120,7 @@ class TodoApp extends Component {
     this._element.innerHTML = `
       <h1 class="heading"><span>Todo</span> Cat List</h1>
       <h3 
-        ${this._items.length < 5 ? 'hidden' : ''}
+        ${this._items.length < 10 ? 'hidden' : ''}
         data-element="todo-max"
         class="heading-max"
       >
@@ -120,14 +130,14 @@ class TodoApp extends Component {
       <div class="wrapper">
         <label for="newAction"></label>
         <input 
-          ${this._items.length >= 5 ? 'disabled' : ''}
+          ${this._items.length >= 10 ? 'disabled' : ''}
           data-element="new-todo-item" 
           placeholder="Add new action"
           id="newAction"
           type="text" 
         >
         <button 
-          ${this._items.length >= 5 ? 'disabled' : ''}
+          ${this._items.length >= 10 ? 'disabled' : ''}
           data-element="add-todo-item"
         >
           <i class="material-icons">add_box</i>
