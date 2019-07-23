@@ -7,37 +7,7 @@
   <link rel="stylesheet" href="./assets/styles.css">
 </head>
 <body>
-  <div id="root">
-    <h1 class="heading"><span>Todo</span> Cat List</h1>
-    <div class="wrapper">
-      <label for="newAction"></label>
-      <input type="text" placeholder="Add new action"
-             data-element="new-todo-action" id="newAction">
-      <button data-element="add-todo-action">
-        <i class="material-icons">add_box</i>
-      </button>
-    </div>
-    <div class="line"></div>
-    <div class="wrapper">
-      <ul data-element="todo-list">
-        <li data-element="todo-item">
-          <i class="material-icons checkbox">check_box_outline_blank</i>
-          <input type="checkbox" data-element="performed-todo-action"
-                 id="item_${1}">
-          <label for="item_${1}">Find the cat</label>
-          <button><i class="material-icons edit">edit</i></button>
-          <button><i class="material-icons delete">delete</i></button>
-        </li>
-        <li data-element="todo-item">
-          <input type="text" data-element="change-todo-action"
-          id="item_${2}">
-          <label for="item_${2}"></label>
-          <button><i class="material-icons save">save</i></button>
-        </li>
-
-      </ul>
-    </div>
-  </div>
+  <div id="root"></div>
 
   <script src="./src/app.js"></script>
 </body>
