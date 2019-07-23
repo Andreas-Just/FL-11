@@ -26,54 +26,82 @@ class TodoApp extends Component {
   constructor({ element, items }) {
     super({ element });
     this._items = items;
+    this._lastCreatedItemId = items.length;
 
     this._render();
 
-    this.on('click', 'add-todo-action', (event) => {
-      const input = this.findElement('new-todo-action');
+    this.on('click', 'add-todo-item', (event) => {
+      const input = this.findElement('new-todo-item');
 
       if (this._items.length >= 5 || input.value === '') {
         return;
       }
+      this._lastCreatedItemId++;
       this._items.push({
+        id: this._lastCreatedItemId,
         checked: false,
+        hidden: true,
         text: input.value
       });
       this._render();
     });
 
-    /*this.on('click', 'performed-todo-action', (event) => {
-      const tag = event.target;
+    this.on('click', 'performed-todo-item', (event) => {
+      const itemElement = event.target.closest('[data-element="todo-item"]');
+      const input = this.findElement('change-todo-item');
 
-      if (tag.tagName === 'LABEL') {
-        tag.children[0].textContent = 'check_box';
-        tag.control.checked = true;
-        tag.control.disabled = true;
-      } else {
-        tag.textContent = 'check_box';
-        tag.parentElement.previousElementSibling.checked = true;
-        tag.parentElement.previousElementSibling.disabled = true;
+      this._findItemInArr(itemElement).checked = true;
+      input.disabled = true;
+      this._render();
+    });
+
+    this.on('click', 'edit-todo-item', (event) => {
+      const itemElement = event.target.closest('[data-element="todo-item"]');
+      const input = itemElement.children[0];
+      const item = this._findItemInArr(itemElement);
+
+      if (!item.hidden) {
+        item.text = input.value
       }
-    });*/
+      item.hidden = !item.hidden;
+      this._render();
+    });
+  }
+
+  _findItemInArr(li) {
+    const currentItemId = +li.dataset.itemId;
+    return this._items.find(item => item.id === currentItemId);
   }
 
   _getItemHtml(item) {
     return `
-      <li data-element="todo-item">
+      <li data-element="todo-item" data-item-id="${item.id}">
         <input
+          data-element="change-todo-item"
+          type=${item.hidden ? 'checkbox' : 'text'}
           ${item.checked ? 'checked' : ''}
-          type="checkbox"
+          ${item.hidden ? 'hidden' : ''}
+          value="${item.text}"
           id="check" 
-          hidden
         >
-        <label data-element="performed-todo-action" for="check">
+        <label 
+          data-element="performed-todo-item" 
+          ${!item.hidden ? 'hidden' : ''}
+          for="check"
+        >
           <i class="material-icons checkbox">
             ${item.checked ? 'check_box' : 'check_box_outline_blank'}
           </i>
-          ${ item.text }
+          ${item.text}
         </label>
-        <button><i class="material-icons edit">edit</i></button>
-        <button><i class="material-icons delete">delete</i></button>
+        <button>
+          <i data-element="edit-todo-item" class="material-icons">
+            ${item.hidden ? 'edit' : 'save'}
+          </i>
+        </button>
+        <button>
+          <i data-element="delete-todo-item" class="material-icons">delete</i>
+        </button>
       </li>
     `;
   }
@@ -93,14 +121,14 @@ class TodoApp extends Component {
         <label for="newAction"></label>
         <input 
           ${this._items.length >= 5 ? 'disabled' : ''}
-          data-element="new-todo-action" 
+          data-element="new-todo-item" 
           placeholder="Add new action"
           id="newAction"
           type="text" 
         >
         <button 
           ${this._items.length >= 5 ? 'disabled' : ''}
-          data-element="add-todo-action"
+          data-element="add-todo-item"
         >
           <i class="material-icons">add_box</i>
         </button>
@@ -113,13 +141,6 @@ class TodoApp extends Component {
           this._getItemHtml(item)
       
         ).join('')}
-        
-        <li data-element="todo-item">
-          <input type="text" data-element="change-todo-action"
-          id="item_${2}">
-          <label for="item_${2}"></label>
-          <button><i class="material-icons save">save</i></button>
-        </li>
       </ul>
     `;
   }
@@ -128,9 +149,9 @@ class TodoApp extends Component {
 const config = {
   element: rootNode,
   items: [
-    {checked: false, text: 'Find the cat'},
-    {checked: false, text: 'Prepare cat\'s carry'},
-    {checked: false, text: 'Bathe a cat'}
+    {id: 1, checked: false, hidden: true, text: 'Find the cat'},
+    {id: 2, checked: false, hidden: true, text: 'Prepare cat\'s carry'},
+    {id: 3, checked: false, hidden: true, text: 'Bathe a cat'}
   ]
 };
 

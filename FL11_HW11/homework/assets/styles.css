@@ -30,7 +30,7 @@ body {
   justify-content: space-between;
   align-items: center;
 }
-input[data-element="new-todo-action"] {
+input[data-element="new-todo-item"] {
   flex-grow: 1;
   margin-right: 10px;
   padding: 17px;
@@ -41,14 +41,14 @@ button {
   border: none;
   cursor: pointer;
 }
-button[data-element="add-todo-action"] i {
+button[data-element="add-todo-item"] i {
   font-size: 45px;
   color: #c8d0d8;
 }
-input[data-element="new-todo-action"]:disabled {
+input[data-element="new-todo-item"]:disabled {
   border-color: indianred;
 }
-button[data-element="add-todo-action"]:disabled i {
+button[data-element="add-todo-item"]:disabled i {
   color: indianred;
 }
 .line {
@@ -78,19 +78,19 @@ li[data-element="todo-item"] .checkbox {
   margin-right: 5px;
   color: #dce1e6;
 }
-/*li[data-element="todo-item"] input[type="checkbox"]:disabled + label {
+li[data-element="todo-item"] input[type="checkbox"]:checked + label {
   text-decoration: line-through;
   color: #9da3aa;
-}*/
+}
 li[data-element="todo-item"] button:nth-of-type(2) {
   margin-left: auto;
 }
 li[data-element="todo-item"] button i {
   color: #89c4f4;
 }
-input[data-element="change-todo-action"] {
+input[data-element="change-todo-item"] {
   padding: 10px;
   width: 35%;
-  font-size: 0.6rem;
+  font-size: 0.8rem;
   border: 1px solid #dce1e6;
 }
