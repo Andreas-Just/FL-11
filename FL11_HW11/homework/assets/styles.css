@@ -1,2 +1,80 @@
-/* Your styles goes here */
-
+html,
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+#root {
+  margin: 0 auto;
+  max-width: 70%;
+  min-width: 400px;
+}
+.heading {
+  text-align: center;
+  color: #33b0fe;
+}
+.heading span {
+  text-transform: uppercase;
+}
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+input[data-element="new-todo-action"] {
+  flex-grow: 1;
+  margin-right: 10px;
+  padding: 17px;
+  border: 1px solid #dce1e6;
+}
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+button[data-element="add-todo-action"] i {
+  font-size: 45px;
+  color: #c8d0d8;
+}
+.line {
+  margin: 25px 0;
+  width: 100%;
+  height: 4px;
+  background-color: #e3f2fe;
+}
+ul[data-element="todo-list"] {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  list-style: none;
+}
+li[data-element="todo-item"] {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  color: #4dbefe;
+}
+li[data-element="todo-item"] .checkbox {
+  margin-right: 5px;
+  color: #dce1e6;
+}
+input[data-element="performed-todo-action"] {
+  display: none;
+}
+li[data-element="todo-item"] button:nth-of-type(2) {
+  margin-left: auto;
+}
+li[data-element="todo-item"] button i {
+  color: #89c4f4;
+}
+input[data-element="change-todo-action"] {
+  padding: 10px;
+  width: 35%;
+  font-size: 0.6rem;
+  border: 1px solid #dce1e6;
+}
