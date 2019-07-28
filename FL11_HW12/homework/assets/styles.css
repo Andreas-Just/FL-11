@@ -1,2 +1,41 @@
-/* Your styles go here */
-
+* {
+  box-sizing: border-box;
+}
+#root {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  width: 60%;
+}
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 5px;
+}
+.checkbox-div {
+  background-image: url(img/todo-s.png);
+  width:35px;
+  height:35px;
+}
+.checkbox-div-done {
+  background-image: url(img/done-s.png);
+  width:35px;
+  height:35px;
+}
+.delete {
+  background-image: url(img/remove-s.jpg);
+  width:35px;
+  height:35px;
+}
+button {
+  border-radius: 5px;
+  margin-top: 10px;
+}
+button+button {
+  margin-left: 20px;
+}
+.buttons-fields {
+  margin-left: auto;
+  margin-right: auto;
+}
