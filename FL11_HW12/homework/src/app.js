@@ -13,7 +13,7 @@ function addElement(parentNode,tag='div',before=null) {
 function onloadPage() {
     location.hash = 'main'
 }
-addEventListener('load',onloadPage)
+addEventListener('load',onloadPage);
 let amountOfItem;
 if (window.localStorage.getItem('amountOfItem')===null) {
     amountOfItem = 1;
@@ -24,40 +24,40 @@ const counterOfItem = (() => {
     return () => {
         amountOfItem++;
     }
-})()
+})();
 let editedItem;
 const editedItemCounter = (() => {
     return function (a) {
         editedItem=a;
         return editedItem;
     }
-})()
+})();
 let mainPage = addElement(rootNode);
 mainPage.setAttribute('id','main');
 let buttonAdd;
 function renderList(todoItems) {
     for (let i = 0;i<todoItems.length;i++) {
-        let ul = document.getElementById('list')
-        let newItem = addElement(ul,'li')
-        newItem.setAttribute('class','item')
+        let ul = document.getElementById('list');
+        let newItem = addElement(ul,'li');
+        newItem.setAttribute('class','item');
         let checkbox = addElement(newItem);
         if (todoItems[i].isDone) {
-            checkbox.setAttribute('class','checkbox-div-done')
-            newItem.style.backgroundColor = '#7E807E'
+            checkbox.setAttribute('class','checkbox-div-done');
+            newItem.style.backgroundImage = 'linear-gradient(to right, transparent, #EEF6FF 12%, #EEF6FF 85%, transparent)';
         } else {
             checkbox.setAttribute('class','checkbox-div');
         }
         let text = addElement(newItem,'span');
         text.onclick = function () {
             location.hash = 'modify';
-        }
+        };
         text.innerHTML = todoItems[i].description;
         let deleteButton = addElement(newItem);
         deleteButton.setAttribute('class','delete')
     }
 }
 function renderMainPage(){
-    mainPage.innerHTML = ''
+    mainPage.innerHTML = '';
     let header = addElement(mainPage,'h2');
     header.setAttribute('class','header');
     header.innerHTML = 'Simple TODO application';
@@ -66,12 +66,12 @@ function renderMainPage(){
     buttonAdd.setAttribute('id','button-add');
     let helpFunc = () => {
         location.hash = 'add-item'
-    }
-    buttonAdd.addEventListener('click' , helpFunc)
+    };
+    buttonAdd.addEventListener('click' , helpFunc);
     let ul = addElement(mainPage,'ul');
-    ul.setAttribute('id','list')
-    ul.style.padding = '0px'
-    ul.style.listStyle = 'none'
+    ul.setAttribute('id','list');
+    ul.style.padding = '0px';
+    ul.style.listStyle = 'none';
     if(todoItems.length===0) {
         ul.innerHTML = '';
         const MESSAGE_NODE = addElement(mainPage);
@@ -87,11 +87,11 @@ function renderMainPage(){
                 hasDoneArray.push(todoItems[i])
             }
         }
-        renderList(hasNotDoneArray)
+        renderList(hasNotDoneArray);
         renderList(hasDoneArray)
     }
 }
-renderMainPage(todoItems)
+renderMainPage(todoItems);
 let addItem = addElement(rootNode);
 addItem.setAttribute('id','add-item');
 let addItemInput,acceptEntering,cancelEntering;
@@ -100,19 +100,19 @@ let addItemInput,acceptEntering,cancelEntering;
     let header = addElement(addItem,'h2');
     header.setAttribute('class','header');
     header.innerHTML = 'Add tasc';
-    addItemInput = addElement(addItem,'input')
+    addItemInput = addElement(addItem,'input');
     addItemInput.setAttribute('id','enter-todo');
-    let buttonsFields = addElement(addItem)
-    buttonsFields.setAttribute('class','buttons-fields')
-    acceptEntering = addElement(buttonsFields,'button')
-    acceptEntering.setAttribute('id','sendEnteredTodo')
+    let buttonsFields = addElement(addItem);
+    buttonsFields.setAttribute('class','buttons-fields');
+    acceptEntering = addElement(buttonsFields,'button');
+    acceptEntering.setAttribute('id','sendEnteredTodo');
     acceptEntering.innerHTML = 'Save changes';
     let helpFunc =() => {
         location.hash = 'main'
-    }
-    acceptEntering.addEventListener('click',helpFunc)
-    cancelEntering = addElement(buttonsFields,'button')
-    cancelEntering.setAttribute('id','cancelEnteredTodo')
+    };
+    acceptEntering.addEventListener('click',helpFunc);
+    cancelEntering = addElement(buttonsFields,'button');
+    cancelEntering.setAttribute('id','cancelEnteredTodo');
     cancelEntering.innerHTML = 'Cancel';
     cancelEntering.addEventListener('click',helpFunc)
 })();
@@ -124,20 +124,20 @@ let editItemInput,acceptEditing,cancelEditing;
     let header = addElement(modify,'h2');
     header.setAttribute('class','header');
     header.innerHTML = 'Modify Item';
-    editItemInput = addElement(modify,'input')
+    editItemInput = addElement(modify,'input');
     editItemInput.setAttribute('id','enter-todo');
-    let buttonsFields = addElement(modify)
-    buttonsFields.setAttribute('class','buttons-fields')
-    acceptEditing = addElement(buttonsFields,'button')
-    acceptEditing.setAttribute('id','sendEditedTodo')
+    let buttonsFields = addElement(modify);
+    buttonsFields.setAttribute('class','buttons-fields');
+    acceptEditing = addElement(buttonsFields,'button');
+    acceptEditing.setAttribute('id','sendEditedTodo');
     acceptEditing.innerHTML = 'Save changes';
     let helpFunc = () => {
         location.hash = 'main'
-    }
-    acceptEditing.addEventListener('click',modifyItem)
-    acceptEditing.addEventListener('click',helpFunc)
-    cancelEditing = addElement(buttonsFields,'button')
-    cancelEditing.setAttribute('id','cancelEditedTodo')
+    };
+    acceptEditing.addEventListener('click',modifyItem);
+    acceptEditing.addEventListener('click',helpFunc);
+    cancelEditing = addElement(buttonsFields,'button');
+    cancelEditing.setAttribute('id','cancelEditedTodo');
     cancelEditing.innerHTML = 'Cancel';
     cancelEditing.addEventListener('click',helpFunc)
 })();
@@ -160,17 +160,17 @@ function modifyItem() {
         return;
     }
     todoItems[editedItem].description = editItemInput.value;
-    window.localStorage.setItem('amountOfItem',amountOfItem)
+    window.localStorage.setItem('amountOfItem',amountOfItem);
     window.localStorage.setItem('todoItems',JSON.stringify(todoItems));
     renderMainPage()
 }
-document.addEventListener('click',fillUpModifyInput)
+document.addEventListener('click',fillUpModifyInput);
 function deletedItem(ev) {
     let target = ev.target;
     const COLLECTIONS_OF_ITEMS = document.querySelectorAll('ul>li>div.delete');
     for(let i =0;i<COLLECTIONS_OF_ITEMS.length;i++) {
         if(COLLECTIONS_OF_ITEMS[i]===target) {
-            let choosenElem = target.parentNode.children[1].innerHTML
+            let choosenElem = target.parentNode.children[1].innerHTML;
             for(let j =0;j<todoItems.length;j++) {
                 if(todoItems[j].description === choosenElem) {
                     todoItems.splice(j,1);
@@ -178,22 +178,22 @@ function deletedItem(ev) {
             }
         }
     }
-    window.localStorage.setItem('amountOfItem',amountOfItem)
+    window.localStorage.setItem('amountOfItem',amountOfItem);
     window.localStorage.setItem('todoItems',JSON.stringify(todoItems));
     renderMainPage()
 }
-document.addEventListener('click',deletedItem)
+document.addEventListener('click',deletedItem);
 function hashChange() {
     mainPage.style.display = 'none';
     addItem.style.display = 'none';
     modify.style.display = 'none';
     document.querySelector(location.hash).style.display = 'block'
 }
-window.addEventListener('hashchange',hashChange)
+window.addEventListener('hashchange',hashChange);
 function isEmpty(inputNode) {
     if(inputNode.value==='') {
         window.alert('enter data in field');
-        location.hash = 'add-item'
+        location.hash = 'add-item';
         return true;
     } else {
         return false;
@@ -202,7 +202,7 @@ function isEmpty(inputNode) {
 function isEqual(inputNode) {
     for(let i=0;i<todoItems.length;i++) {
         if(inputNode.value===todoItems[i].description){
-            window.alert(`you can't add already exist item`)
+            window.alert(`you can't add already exist item`);
             location.hash = 'add-item';
             return true;
         }
@@ -220,14 +220,14 @@ function addNewItem() {
     obj.isDone = false;
     obj.id = amountOfItem;
     obj.description = addItemInput.value;
-    todoItems.push(obj)
+    todoItems.push(obj);
     addItemInput.value = '';
-    window.localStorage.setItem('amountOfItem',amountOfItem)
-    window.localStorage.setItem('todoItems',JSON.stringify(todoItems))
+    window.localStorage.setItem('amountOfItem',amountOfItem);
+    window.localStorage.setItem('todoItems',JSON.stringify(todoItems));
     counterOfItem()
 }
-acceptEntering.addEventListener('click',addNewItem)
-acceptEntering.addEventListener('click',renderMainPage)
+acceptEntering.addEventListener('click',addNewItem);
+acceptEntering.addEventListener('click',renderMainPage);
 //checking
 function pressCheckbox(ev) {
     if (ev.target.getAttribute('class')==='checkbox-div-done'||ev.target.getAttribute('class')==='checkbox-div') {
@@ -242,12 +242,12 @@ function pressCheckbox(ev) {
                 }
             }
         }
-        window.localStorage.setItem('amountOfItem',amountOfItem)
+        window.localStorage.setItem('amountOfItem',amountOfItem);
         window.localStorage.setItem('todoItems',JSON.stringify(todoItems));
         renderMainPage()
     }
 }
-document.addEventListener('click',pressCheckbox)
+document.addEventListener('click',pressCheckbox);
 //user alert
 function renderUserAlert(descriptionMessage){
     // you required every element should be included to rootNode than this alert has written only for rootNode
@@ -257,18 +257,18 @@ function renderUserAlert(descriptionMessage){
     overElement.style.display = 'none';
     overElement.style.top = '0%';
     overElement.style.position = 'absolute';
-    overElement.setAttribute('id','over-element')
+    overElement.setAttribute('id','over-element');
     overElement.style.opacity = '0';
     overElement.style.left = '0%';
     rootNode.style.position = 'relative';
     let alertBody = addElement(rootNode);
-    alertBody.style.backgroundColor = 'red'
-    alertBody.style.color = 'white'
-    alertBody.style.width = '300px'
-    alertBody.style.height = '150px'
-    alertBody.style.padding = '10px'
+    alertBody.style.backgroundColor = 'red';
+    alertBody.style.color = 'white';
+    alertBody.style.width = '300px';
+    alertBody.style.height = '150px';
+    alertBody.style.padding = '10px';
     alertBody.style.display = 'none';
-    alertBody.setAttribute('id','alert-body')
+    alertBody.setAttribute('id','alert-body');
     alertBody.style.position = 'fixed';
     alertBody.style.top = '30px';
     function isChrome() {
@@ -280,14 +280,14 @@ function renderUserAlert(descriptionMessage){
         alertBody.style.right = '30px';
     }
     let messageBox = addElement(alertBody);
-    let message = addElement(messageBox)
+    let message = addElement(messageBox);
     messageBox.style.display = 'flex';
     messageBox.style.justifyContent = 'space-between';
     message.innerHTML = 'Danger';
     let closeIcon = addElement(messageBox);
     closeIcon.innerHTML = 'X';
     closeIcon.addEventListener('click',hideAlert);
-    let description = addElement(alertBody)
+    let description = addElement(alertBody);
     description.innerHTML = descriptionMessage;
 }
 function hideAlert() {
@@ -299,7 +299,7 @@ function hideAlert() {
     over.style.display = 'none';
     let alertBody = document.getElementById('alert-body');
     alertBody.style.display = 'none';
-    over.parentNode.removeChild(over)
+    over.parentNode.removeChild(over);
     alertBody.parentNode.removeChild(alertBody)
 }
 window.alert = function(descriptionMessage) {
@@ -310,4 +310,4 @@ window.alert = function(descriptionMessage) {
     alertBody.style.display = 'block';
     const TIME_TO_HIDE = 2000;
     setTimeout(hideAlert,TIME_TO_HIDE)
-}
+};

@@ -1,36 +1,92 @@
-* {
+:root {
+  --main-color: dodgerblue;
+  --dark-color: midnightblue;
+  --light-blue: #EEF6FF;
+}
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 1.5vw;
   box-sizing: border-box;
+}
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
 }
 #root {
   margin-left: auto;
   margin-right: auto;
   text-align: center;
-  width: 60%;
+  width: 50%;
+}
+.header {
+  margin-top: 2rem;
+  color: var(--main-color);
+  font-size: 1.8rem;
 }
 .item {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 5px;
+  margin-top: 10px;
+  font-size: 1.2rem;
+  text-align: left;
+  color: var(--dark-color);
+}
+.item span {
+  margin-right: auto;
+  margin-left: 10px;
+  width: 90%;
 }
 .checkbox-div {
   background-image: url(img/todo-s.png);
-  width:35px;
-  height:35px;
+  background-size: 1rem;
+  width:1rem;
+  height:1rem;
 }
 .checkbox-div-done {
   background-image: url(img/done-s.png);
-  width:35px;
-  height:35px;
+  background-size: 1rem;
+  width:1rem;
+  height:1rem;
 }
 .delete {
   background-image: url(img/remove-s.jpg);
-  width:35px;
-  height:35px;
+  background-size: 1rem;
+  width:1rem;
+  height:1rem;
+}
+#enter-todo {
+  margin-bottom: 1rem;
+  padding: 0.8rem;
+  width: 85%;
+  font-size: 1rem;
+  color: var(--dark-color);
+  background-color: var(--light-blue);
+  border: 2px solid var(--main-color);
+  border-radius: 10px;
+}
+#enter-todo:focus {
+  outline: none;
 }
 button {
-  border-radius: 5px;
-  margin-top: 10px;
+  background-color: var(--main-color);
+  border: none;
+  color: white;
+  margin: 0.2rem 0 1rem;
+  padding: .5rem 1.5rem;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1rem;
+  border-radius: .5rem;
+  cursor: pointer;
+}
+button:focus {
+  outline: none;
 }
 button+button {
   margin-left: 20px;
