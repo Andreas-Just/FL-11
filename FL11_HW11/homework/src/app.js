@@ -37,14 +37,18 @@ class TodoApp extends Component {
       if (this._items.length >= this._maxTodoItems || input.value === '') {
         return;
       }
-      this._lastCreatedItemId++;
-      this._items.push({
-        id: this._lastCreatedItemId,
-        checked: false,
-        hidden: true,
-        text: input.value
-      });
-      this._render();
+      this._addItemInConfig(input);
+    });
+
+    this.on('keydown', 'new-todo-item', (event) => {
+      const input = this.findElement('new-todo-item');
+
+      if (this._items.length >= this._maxTodoItems || input.value === '') {
+        return;
+      }
+      if (event.key === 'Enter') {
+        this._addItemInConfig(input);
+      }
     });
 
     this.on('click', 'performed-todo-item', (event) => {
@@ -79,6 +83,81 @@ class TodoApp extends Component {
       });
       this._render();
     });
+
+    this.on('mousedown', 'todo-item', () => {
+      TodoApp.NODES_LIST = document.querySelectorAll(`[data-element="todo-item"]`);
+      TodoApp.NODES_LIST.forEach(item => {
+        const itemValue = item.children[1].textContent.trim().split('\n')[2].trim();
+
+        item.addEventListener('dragstart', this._handleDragStart, false);
+        item.addEventListener('dragenter', this._handleDragEnter, false);
+        item.addEventListener('dragover', this._handleDragOver, false);
+        item.addEventListener('dragleave', this._handleDragLeave, false);
+        item.addEventListener('drop', this._handleDrop, false);
+        item.addEventListener('dragend', this._handleDragEnd, false);
+
+        this._items.map(items => {
+          if (itemValue !== items.text) return;
+          items.id = +item.dataset.itemId;
+        });
+      });
+
+      this._items.sort((a, b) => +a.id - +b.id);
+    });
+  }
+
+  static NODES_LIST;
+  static DRAG_SRC_ELEMENT = null;
+
+  _handleDragStart(event) {
+    TodoApp.DRAG_SRC_ELEMENT = this;
+    event.target.style.oppacity = '0.4';
+    event.dataTransfer.effectAllowed = 'move';
+    event.dataTransfer.setData('text/html', this.innerHTML);
+  }
+
+  _handleDragOver(event) {
+    if (event.preventDefault) {
+      event.preventDefault();
+    }
+    event.dataTransfer.dropEffect = 'move';
+    return false;
+  }
+
+  _handleDragEnter(event) {
+    event.target.classList.add('over');
+  }
+
+  _handleDragLeave(event) {
+    event.target.classList.remove('over');
+  }
+
+  _handleDrop(event) {
+    if (event.stopPropagation) {
+      event.stopPropagation();
+    }
+    if (TodoApp.DRAG_SRC_ELEMENT !== this) {
+      TodoApp.DRAG_SRC_ELEMENT.innerHTML = this.innerHTML;
+      this.innerHTML = event.dataTransfer.getData('text/html');
+    }
+    return false;
+  }
+
+  _handleDragEnd() {
+    TodoApp.NODES_LIST.forEach(function (item) {
+      item.classList.remove('over');
+    });
+  }
+
+  _addItemInConfig(input) {
+    this._lastCreatedItemId++;
+    this._items.push({
+      id: this._lastCreatedItemId,
+      checked: false,
+      hidden: true,
+      text: input.value
+    });
+    this._render();
   }
 
   _findItemInArr(li) {
@@ -88,7 +167,11 @@ class TodoApp extends Component {
 
   _getItemHtml(item) {
     return `
-      <li data-element="todo-item" data-item-id="${item.id}">
+      <li 
+        data-element="todo-item" 
+        data-item-id="${item.id}"
+        draggable="true"
+      >
         <input
           data-element="change-todo-item"
           type=${item.hidden ? 'checkbox' : 'text'}

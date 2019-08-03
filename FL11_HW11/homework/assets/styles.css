@@ -94,3 +94,6 @@ input[data-element="change-todo-item"] {
   font-size: 0.8rem;
   border: 1px solid #dce1e6;
 }
+.over {
+  border: 1px dashed #ccc;
+}
