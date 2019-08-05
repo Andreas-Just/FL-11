@@ -29,9 +29,9 @@ on('click', '.header__item', (event) => {
       item.classList.remove('open');
     }
   });
-  if (li.classList.contains('open')) {
-    li.classList.remove('open');
-  } else {
+  if (!li.classList.contains('open') && li.children.length > 1) {
     li.classList.add('open');
+  } else {
+    li.classList.remove('open');
   }
 });

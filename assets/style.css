@@ -28,7 +28,7 @@ body {
   box-sizing: inherit;
 }
 body {
-  font-family: 'Montserrat-Bold';
+  font-family: 'Montserrat-Regular';
   color: #323232;
   background-color: #fff;
   background-image: linear-gradient(135deg,rgba(0,0,0,.1) 25%,transparent 25%),linear-gradient(225deg,rgba(0,0,0,.1) 25%,transparent 25%),linear-gradient(45deg,rgba(0,0,0,.1) 25%,transparent 25%),linear-gradient(315deg,rgba(0,0,0,.1) 25%,transparent 25%);
@@ -51,7 +51,9 @@ ul {
 }
 .header {
   position: relative;
-  padding-top: 250px;
+  padding: 260px 0 220px;
+  color: white;
+  background-color: deepskyblue;
 }
 .header__nav {
   position: fixed;
@@ -75,6 +77,7 @@ ul {
   justify-content: flex-end;
   align-items: flex-start;
   flex-wrap: wrap;
+  font-family: 'Montserrat-Semi-Bold';
 }
 .header__item {
   position: relative;
@@ -126,11 +129,18 @@ ul {
   color: white;
 }
 .header__title {
-  margin: 0;
+  margin: 0 120px;
   padding: 0;
+  font-size: 35px;
   font-family: 'Montserrat-Semi-Bold';
-  text-align: center;
 }
+.header__text {
+  margin: 10px 120px 0;
+  width: 55%;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
 .page-main {
   height: 1000px;
 }
