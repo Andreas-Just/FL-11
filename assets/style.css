@@ -28,6 +28,7 @@ body {
   box-sizing: inherit;
 }
 body {
+  font-size: 1em;
   font-family: 'Montserrat-Regular';
   color: #323232;
   background-color: #fff;
@@ -36,6 +37,10 @@ body {
   -webkit-background-size: 50px 50px;
   background-size: 50px 50px;
   background-repeat: repeat;
+}
+img {
+  max-width: 100%;
+  height: auto;
 }
 ul {
   margin: 0;
@@ -77,6 +82,7 @@ ul {
   justify-content: flex-end;
   align-items: flex-start;
   flex-wrap: wrap;
+  font-size: 1rem;
   font-family: 'Montserrat-Semi-Bold';
 }
 .header__item {
@@ -131,20 +137,129 @@ ul {
 .header__title {
   margin: 0 120px;
   padding: 0;
-  font-size: 35px;
+  font-size: 2.5rem;
   font-family: 'Montserrat-Semi-Bold';
 }
 .header__text {
   margin: 10px 120px 0;
   width: 55%;
-  font-size: 15px;
+  font-size: 1.2rem;
   line-height: 1.5;
 }
 
 .page-main {
-  height: 1000px;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 20px;
+  width: 100%;
 }
-
+.homework {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 49%;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 1.15rem;
+}
+.homework:nth-child(2n) {
+  margin-left: 2%;
+}
+.homework:nth-child(4n - 2),
+.homework:nth-child(4n - 1) {
+  background-color: #f5f5f5;
+  box-shadow: 0 0 5px 3px #f5f5f5;
+}
+.homework__title {
+  margin: 10px 0 20px;
+  color: #0088cc;
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  text-shadow: 5px 5px 5px rgba(128,0,0,0.4);
+}
+.homework p {
+  align-self: flex-start;
+  margin: 0 20px 7px 20px;
+  padding: 0;
+  text-align: left;
+}
+.homework a {
+  align-self: flex-start;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 20px;
+  padding: 10px;
+  width: 45%;
+  font-size: 0.9rem;
+  font-family: 'Montserrat-Semi-Bold';
+  text-decoration: none;
+  color: white;
+  background-color: deepskyblue;
+  transition: all 300ms ease-in-out;
+}
+.homework > a {
+  margin-bottom: 25px;
+}
+.homework a span {
+  flex-grow: 1;
+}
+.homework a:hover {
+  background-color: #0088cc;
+}
+.homework a i {
+  animation: icon-back-rotation 300ms ease-out backwards;
+}
+.homework a:hover i {
+  animation: icon-rotation 300ms ease-out forwards;
+}
+@keyframes icon-rotation {
+  0% {
+    transform: rotateY(0);
+  }
+  100% {
+    transform: rotateY(180deg);
+  }
+}
+@keyframes icon-back-rotation {
+  0% {
+    transform: rotateY(180deg);
+  }
+  100% {
+    transform: rotateY(0);
+  }
+}
+.homework__examples {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 10px 20px;
+  border: 1px solid #ddd;
+  box-shadow: 0 0 10px 3px #ddd;
+}
+.homework:nth-child(4n - 2) .homework__examples,
+.homework:nth-child(4n - 1) .homework__examples {
+  box-shadow: 0 0 10px 3px #cdcdcd;
+}
+.homework__img {
+  width: 60%;
+}
+.homework__img img {
+  vertical-align: middle;
+}
+.homework__inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: stretch;
+  flex-wrap: wrap;
+  flex-grow: 1;
+  margin: 0 5px;
+}
+.homework .homework__screen {
+  margin: 0;
+  width: 100%;
+}
 
 @media screen and (max-width: 768px) {
   .header__nav {

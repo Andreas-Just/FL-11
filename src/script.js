@@ -1,4 +1,5 @@
 'use strict';
+const URL = '../FL11_HW3/homework/index.html';
 
 const on = (eventName, classElementName, callback) => {
   this.addEventListener(eventName, (event) => {
@@ -20,7 +21,6 @@ const findAllElements = (classElement, searchArea) => {
   return searchArea.querySelectorAll(`${classElement}`);
 };
 
-// const nav = findElement('.header__nav', document);
 on('click', '.header__item', (event) => {
   const li = event.target.parentElement;
   const liArr = findAllElements('.header__item', document);
@@ -34,4 +34,10 @@ on('click', '.header__item', (event) => {
   } else {
     li.classList.remove('open');
   }
+});
+
+on('click', '.homework__github', (event) => {
+  event.preventDefault();
+  const link = document.getElementsByTagName("link");
+  console.log(link);
 });
