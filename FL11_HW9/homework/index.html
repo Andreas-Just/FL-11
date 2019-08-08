@@ -1,12 +1,201 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Data types</title>
-</head>
-<body>
-  <script src="index.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Data types</title>
+    <style>
+      .code-title {color: maroon; margin: 30px 0 0 50px;}
+      .code {padding-top: 10px; margin-left: 50px; width: 70%; color: midnightblue;
+        background-color: #f5f5f5;}
+      .wrapper:last-child {margin-bottom: 30px;}
+    </style>
+  </head>
+  <body>
+    <script src="index.js"></script>
+
+    <div class="wrapper">
+      <h3 class="code-title">Task 0</h3>
+        <pre class="code">
+          const getNumbers = (str) => {
+            const regExp = /\d/g;
+            const result = [];
+            if (regExp.test(str)) {
+              for (let item of [...str.match(regExp)]) {
+                result.push(+item);
+              }
+            }
+            return result;
+          };
+
+          console.log(getNumbers('string'));
+          console.log(getNumbers('n1um3ber95'));
+        </pre>
+    </div>
+    <div class="wrapper">
+      <h3 class="code-title">Task 1</h3>
+        <pre class="code">
+          const findTypes = (...args) => {
+            const result = {};
+            for (let item of args) {
+              item = typeof item;
+              if (!result.hasOwnProperty(item)) {
+                result[item] = 1;
+              } else {
+                result[item]++;
+              }
+            }
+            return result;
+          };
+
+          console.log(
+            findTypes('number', null, 5, getNumbers('um3ber95')[1], {})
+          );
+          console.log(
+            findTypes(getNumbers('string'), 5, 'hello', [], getNumbers)
+          );
+        </pre>
+    </div>
+    <div class="wrapper">
+      <h3 class="code-title">Task 2</h3>
+        <pre class="code">
+          const executeforEach = (arr, callback) => {
+            for (let item of arr) {
+              callback(item);
+            }
+          };
+
+          executeforEach([1, 2, 3], (el) => console.log(el));
+        </pre>
+    </div>
+    <div class="wrapper">
+      <h3 class="code-title">Task 3</h3>
+        <pre class="code">
+          const mapArray = (arr, callback) => {
+            const result = [];
+            executeforEach(arr,el => result.push(callback(el)));
+            return result;
+          };
+
+          console.log(mapArray([2, 5, 8], el => el + 3));
+        </pre>
+    </div>
+    <div class="wrapper">
+      <h3 class="code-title">Task 4</h3>
+        <pre class="code">
+          const filterArray = (arr, callback) => {
+            let result = [];
+            executeforEach(arr,el => callback(el) ? result.push(el) : null);
+            return result;
+          };
+
+          console.log(filterArray([2, 5, 8], el => el > 3));
+        </pre>
+    </div>
+    <div class="wrapper">
+      <h3 class="code-title">Task 5</h3>
+        <pre class="code">
+          const showFormattedDate = (date) => {
+            const variant = {day: '2-digit', month: 'short'};
+            const dateFormat = date.toLocaleDateString('en-US', variant);
+            return `'Date: ${dateFormat} ${date.getFullYear()}'`;
+          };
+
+          console.log(showFormattedDate(new Date('2019-01-27T01:10:00')));
+          console.log(showFormattedDate(new Date('2019-02-29T01:10:00')));
+        </pre>
+    </div>
+    <div class="wrapper">
+      <h3 class="code-title">Task 6</h3>
+        <pre class="code">
+          const canConvertToDate = (str) => {
+            return !isNaN(Date.parse(str));
+          };
+
+          console.log(canConvertToDate('2016-13-18T00:00:00'));
+          console.log(canConvertToDate('2016-03-18T00:00:00'));
+        </pre>
+    </div>
+    <div class="wrapper">
+      <h3 class="code-title">Task 7</h3>
+        <pre class="code">
+          const daysBetween = (dateBefore, dateAfter) => {
+            const diff = Math.abs(dateAfter - dateBefore);
+            const day = 1000 * 60 * 60 * 24;
+            return Math.ceil( diff / day);
+          };
+
+          console.log(
+            daysBetween(new Date('2016-03-18T00:00:00'), new Date('2016-04-19T00:00:00'))
+          );
+        </pre>
+    </div>
+    <div class="wrapper">
+      <h3 class="code-title">Task 8</h3>
+        <pre class="code">
+          const person = [
+            {...},
+            {...},
+            {...},
+            {...}
+          ];
+
+          const getAmountOfAdultPeople = (arr) => {
+            const years18InDays = 6574;
+            return filterArray(arr, item =>
+              daysBetween(new Date(item.birthday), new Date()) > years18InDays
+            ).length;
+          };
+
+          console.log(getAmountOfAdultPeople(person));
+        </pre>
+    </div>
+    <div class="wrapper">
+      <h3 class="code-title">Task 9</h3>
+        <pre class="code">
+          const numbers = {
+            two: 2,
+            three: 3,
+            five: 5,
+            eight: 8,
+            twentyFour: 24,
+            sixty: 60,
+            thousand: 1000
+          };
+
+          const keys = (obj) => {
+            const result = [];
+            for (let item in obj) {
+              if (obj.hasOwnProperty(item)) {
+                result.push(item);
+              }
+            }
+            return result;
+          };
+
+          console.log(keys(numbers));
+        </pre>
+    </div>
+    <div class="wrapper">
+      <h3 class="code-title">Task 10</h3>
+        <pre class="code">
+          const values = (obj) => {
+            const result = [];
+            for (let item in obj) {
+              if (obj.hasOwnProperty(item)) {
+                result.push(obj[item]);
+              }
+            }
+            return result;
+          };
+
+          console.log(values(numbers));
+        </pre>
+    </div>
+
+
+
+
+  </body>
 </html>

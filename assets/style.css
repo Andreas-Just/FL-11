@@ -230,6 +230,16 @@ ul {
     transform: rotateY(0);
   }
 }
+.homework__wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 25px;
+  width: 100%;
+}
+.homework__wrapper .homework__github:last-child {
+  margin-right: 10px;
+  margin-left: 0;
+}
 .homework__examples {
   display: flex;
   justify-content: space-between;

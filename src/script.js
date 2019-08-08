@@ -1,5 +1,5 @@
 'use strict';
-const URL = '../FL11_HW3/homework/index.html';
+// const URL = '../FL11_HW3/homework/index.html';
 
 const on = (eventName, classElementName, callback) => {
   this.addEventListener(eventName, (event) => {
@@ -22,6 +22,9 @@ const findAllElements = (classElement, searchArea) => {
 };
 
 on('click', '.header__item', (event) => {
+  if (event.target.className === 'header__link') {
+    event.preventDefault();
+  }
   const li = event.target.parentElement;
   const liArr = findAllElements('.header__item', document);
   liArr.forEach(item => {
@@ -36,8 +39,10 @@ on('click', '.header__item', (event) => {
   }
 });
 
+/*
 on('click', '.homework__github', (event) => {
   event.preventDefault();
   const link = document.getElementsByTagName("link");
   console.log(link);
 });
+*/

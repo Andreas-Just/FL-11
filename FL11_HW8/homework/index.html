@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Introduction to JS</title>
+    <style>
+      .code-title {color: maroon; margin: 30px 0 0 50px;}
+      .code {padding-top: 10px; margin-left: 50px; width: 70%; color: midnightblue;
+        background-color: #f5f5f5;}
+      .wrapper:last-child {margin-bottom: 30px;}
+    </style>
+  </head>
+  <body>
+    <script src="js/isBigger.js"></script>
+    <script src="js/isSmaller.js"></script>
+    <script src="js/getMin.js"></script>
+    <script src="js/isInteger.js"></script>
+    <script src="js/reverseNumber.js"></script>
+    <script src="js/pipe.js"></script>
+    <script src="js/formatTime.js"></script>
+
+    <div class="wrapper">
+      <h3 class="code-title">isBigger</h3>
+        <pre class="code">
+          const isBigger = (a, b) => a > b;
+
+          console.log(isBigger(5, 2));
+        </pre>
+    </div>
+    <div class="wrapper">
+      <h3 class="code-title">isSmaller</h3>
+        <pre class="code">
+          const isSmaller = (a, b) => a < b;
+
+          console.log(isSmaller(5, 7));
+        </pre>
+    </div>
+    <div class="wrapper">
+      <h3 class="code-title">getMin</h3>
+        <pre class="code">
+          const getMin = (...args) => Math.min(...args);
+
+          console.log(getMin(5, 2, 12, -2, 40, -15, 0));
+        </pre>
+    </div>
+    <div class="wrapper">
+      <h3 class="code-title">isInteger</h3>
+        <pre class="code">
+          const isInteger = (a) => parseFloat(a) - parseInt(a) === 0;
+
+          console.log(isInteger(5.0));
+          console.log(isInteger(5.000000000000001));
+        </pre>
+    </div>
+    <div class="wrapper">
+      <h3 class="code-title">reverseNumber</h3>
+        <pre class="code">
+          const reverseNumber = (num) => {
+            const sign = num < 0 ? -1 : 1;
+            let result = 0;
+            num = Math.abs(num);
+            while (num > 0) {
+              result = 10 * result + num % 10;
+              num = Math.floor(num / 10);
+            }
+            return result * sign;
+          };
+
+          console.log(reverseNumber(123));
+          console.log(reverseNumber(-456));
+          console.log(reverseNumber(1000));
+        </pre>
+    </div>
+    <div class="wrapper">
+      <h3 class="code-title">pipe</h3>
+      <pre class="code">
+          const addOne = x => x + 1;
+          const pipe = (num, ...args) => [...args].reduce((acc, curr) => curr(acc), num);
+
+          console.log(pipe(1, addOne, addOne));
+        </pre>
+    </div>
+    <div class="wrapper">
+      <h3 class="code-title">formatTime</h3>
+      <pre class="code">
+          const units = new Map([
+            ['day', 1440],
+            ['hour', 60],
+            ['minute', 1]
+          ]);
+
+          const formatTime = (min) => {
+            let result = '';
+            units.forEach( (value, key) => {
+              const time = Math.floor(min / value);
+              result += ' ' + time + ' ' + key + '(s)';
+              min %= value;
+            });
+            return result;
+          };
+
+          console.log(formatTime(120));
+          console.log(formatTime(59));
+          console.log(formatTime(3601));
+        </pre>
+    </div>
+
+  </body>
+</html>
