@@ -1,5 +1,5 @@
 'use strict';
-const URL = 'https://andreas-just.github.io/FL11/FL11_HW3/homework/index.html';
+const URL = 'https://andreas-just.github.io/FL-11/FL11_HW3/homework/index.html';
 
 const on = (eventName, classElementName, callback) => {
   this.addEventListener(eventName, (event) => {
