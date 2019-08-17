@@ -1,5 +1,4 @@
 'use strict';
-const URL = 'https://andreas-just.github.io/FL-11/FL11_HW3/homework/index.html';
 
 const on = (eventName, classElementName, callback) => {
   this.addEventListener(eventName, (event) => {
@@ -53,21 +52,4 @@ on('click', '.header__wrapper', (event) => {
     div.classList.add('header__wrapper--closed');
     div.classList.remove('header__wrapper--opened');
   }
-});
-
-on('click', '.homework__github', (event) => {
-  event.preventDefault();
-  fetch(`${URL}`)
-    .then(response => {
-      console.log(response);
-      response.clone()
-    })
-    .catch((error) => {
-      console.warn(error);
-
-      return Promise.reject(error);
-    });
-
-  // const link = document.getElementsByTagName("link");
-  // console.log(link);
 });

@@ -39,14 +39,14 @@ body {
 }
 
 body {
-  min-width: 1920px;
+  max-width: 100%;
   font-family: getFont(map_get($colors, bgColor));
   color: getColor(color);
   background-color: getColor(bgColor);
 }
 
 .header {
-  width: 1920px;
+  width: 100%;
   height: 900px;
   background-color: white;
   background-image: $bgHeader;
@@ -136,7 +136,7 @@ body {
 
 .section {
   position: relative;
-  width: 1920px;
+  width: 100%;
 }
 
 .section_text {
@@ -166,9 +166,11 @@ body {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  margin: 0 12px;
+  margin: 0 11px 11px;
   padding: 26px;
-  width: 497px;
+  max-width: 497px;
+  min-width: 470px;
+  width: 30vw;
   text-align: center;
   color: white;
   background-color: getColor(cardColor);
@@ -202,7 +204,7 @@ body {
   flex-grow: 1;
   align-self: center;
   margin-top: 20px;
-  font-size: 1.27em;
+  font-size: 1.24rem;
   line-height: 1.5;
   opacity: 0.7;
 }
@@ -257,7 +259,7 @@ body {
 .footer {
   display: flex;
   justify-content: center;
-  width: 1920px;
+  width: 100%;
   margin-top: 260px;
   color: white;
   background-color: getColor(cardColor);
