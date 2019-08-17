@@ -1,5 +1,5 @@
 'use strict';
-// const URL = '../FL11_HW3/homework/index.html';
+const URL = 'https://andreas-just.github.io/FL11/FL11_HW3/homework/index.html';
 
 const on = (eventName, classElementName, callback) => {
   this.addEventListener(eventName, (event) => {
@@ -53,13 +53,21 @@ on('click', '.header__wrapper', (event) => {
     div.classList.add('header__wrapper--closed');
     div.classList.remove('header__wrapper--opened');
   }
-  console.log(div);
 });
 
-/*
 on('click', '.homework__github', (event) => {
   event.preventDefault();
-  const link = document.getElementsByTagName("link");
-  console.log(link);
+  fetch(`${URL}`)
+    .then(response => {
+      console.log(response);
+      response.clone()
+    })
+    .catch((error) => {
+      console.warn(error);
+
+      return Promise.reject(error);
+    });
+
+  // const link = document.getElementsByTagName("link");
+  // console.log(link);
 });
-*/
