@@ -13,13 +13,15 @@ const on = (eventName, classElementName, callback) => {
   });
 };
 
-const findElement = (classElement, searchArea) => {
-  return searchArea.querySelector(`${classElement}`);
+const findElement = (selectorElement, searchArea) => {
+  return searchArea.querySelector(`${selectorElement}`);
 };
 
-const findAllElements = (classElement, searchArea) => {
-  return searchArea.querySelectorAll(`${classElement}`);
+const findAllElements = (selectorElement, searchArea) => {
+  return searchArea.querySelectorAll(`${selectorElement}`);
 };
+
+findElement('#header', document).classList.remove('header--nojs');
 
 on('click', '.header__item', (event) => {
   if (event.target.className === 'header__link') {
@@ -37,6 +39,21 @@ on('click', '.header__item', (event) => {
   } else {
     li.classList.remove('open');
   }
+});
+
+on('click', '.header__wrapper', (event) => {
+  if (!event.target.closest('.header__toggle')) return;
+
+  const div = event.target.parentElement;
+
+  if (div.classList.contains('header__wrapper--closed')) {
+    div.classList.remove('header__wrapper--closed');
+    div.classList.add('header__wrapper--opened');
+  } else {
+    div.classList.add('header__wrapper--closed');
+    div.classList.remove('header__wrapper--opened');
+  }
+  console.log(div);
 });
 
 /*

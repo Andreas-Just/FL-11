@@ -32,8 +32,8 @@ body {
   font-family: 'Montserrat-Regular';
   color: #323232;
   background-color: #fff;
-  background-image: linear-gradient(135deg,rgba(0,0,0,.1) 25%,transparent 25%),linear-gradient(225deg,rgba(0,0,0,.1) 25%,transparent 25%),linear-gradient(45deg,rgba(0,0,0,.1) 25%,transparent 25%),linear-gradient(315deg,rgba(0,0,0,.1) 25%,transparent 25%);
-  background-position: 25px 0,25px 0,0 0,0 0;
+  background-image: linear-gradient(135deg, rgba(0, 0, 0, .1) 25%, transparent 25%), linear-gradient(225deg, rgba(0, 0, 0, .1) 25%, transparent 25%), linear-gradient(45deg, rgba(0, 0, 0, .1) 25%, transparent 25%), linear-gradient(315deg, rgba(0, 0, 0, .1) 25%, transparent 25%);
+  background-position: 25px 0, 25px 0, 0 0, 0 0;
   -webkit-background-size: 50px 50px;
   background-size: 50px 50px;
   background-repeat: repeat;
@@ -46,6 +46,20 @@ ul {
   margin: 0;
   padding: 0;
   list-style: none;
+}
+.visually-hidden:not(:focus):not(:active),
+input[type="checkbox"].visually-hidden,
+input[type="radio"].visually-hidden {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  white-space: nowrap;
+  border: 0;
+  clip-path: inset(100%);
 }
 .container {
   margin: 0 auto;
@@ -72,10 +86,16 @@ ul {
   border-bottom: 2px solid #e5e5e5;
   transform: translateX(-50%);
 }
+.header__wrapper {
+  position: relative;
+}
 .header__logo {
   display: block;
   align-self: center;
   margin: 7px 25px 0;
+}
+.header__toggle {
+  display: none;
 }
 .header__list {
   display: flex;
@@ -97,6 +117,9 @@ ul {
   border-left: 2px solid #e5e5e5;
   border-right: 2px solid #e5e5e5;
 }
+.header__link {
+  transition: all 400ms ease-in-out;
+}
 .header__link:hover {
   background-color: #f5f5f5;
 }
@@ -116,6 +139,15 @@ ul {
 .header__item:hover .header__sub-list {
   display: block;
   z-index: 20;
+  animation: opacity 400ms ease-in-out forwards;
+}
+@keyframes opacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 .open .header__sub-list {
   display: block;
@@ -146,7 +178,6 @@ ul {
   font-size: 1.2rem;
   line-height: 1.5;
 }
-
 .page-main {
   display: flex;
   flex-wrap: wrap;
@@ -176,7 +207,7 @@ ul {
   color: #0088cc;
   font-size: 1.8rem;
   text-transform: uppercase;
-  text-shadow: 5px 5px 5px rgba(128,0,0,0.4);
+  text-shadow: 5px 5px 5px rgba(128, 0, 0, 0.4);
 }
 .homework p {
   align-self: flex-start;
@@ -270,16 +301,295 @@ ul {
   margin: 0;
   width: 100%;
 }
+.footer {
+  padding: 40px 0 30px;
+  font-size: 1.1rem;
+  font-family: 'Montserrat-Semi-Bold';
+  color: white;
+  background-color: #00bfff;
+}
+.footer__wrapper {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.footer p {
+  margin: 0;
+  padding: 0;
+}
+.footer__author svg {
+  transition: filter 600ms ease-in;
+}
+.footer__author path {
+  transition: fill 300ms ease-out;
+}
+.footer__author svg {
+  width: 230px;
+  filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.3));
+}
+.footer__author:hover svg {
+  filter: drop-shadow(4px 4px 4px rgba(255, 255, 255, 0.7));
+}
+.footer__author:hover path {
+  fill: dodgerblue;
+}
+
+@media screen and (max-width: 1024px) {
+  .container {
+    width: 100%;
+  }
+  .header__nav {
+    width: 100%;
+  }
+}
 
 @media screen and (max-width: 768px) {
+  .header {
+    padding: 200px 0 100px;
+  }
   .header__nav {
     flex-direction: column;
-  }
-  .header__logo {
-    margin: 20px auto 10px;
   }
   .header__list {
     justify-content: center;
     margin: 0;
+    font-size: 0.8rem;
+  }
+  .header__title {
+    font-size: 2rem;
+  }
+  .header__text {
+    font-size: 1.1rem;
+  }
+  .homework {
+    font-size: 1rem;
+  }
+  .homework__title {
+    font-size: 1.6rem;
+  }
+  .homework a {
+    align-self: center;
+    margin: 0 10px;
+    width: 93%;
+  }
+  .homework > a {
+    margin-bottom: 25px;
+  }
+  .homework__examples {
+    display: block;
+  }
+  .homework__img {
+    width: 95%;
+    margin: 7px auto;
+  }
+  .homework__inner {
+    margin: 0;
+  }
+  .homework .homework__screen {
+    margin-bottom: 10px;
+    width: 95%;
+  }
+  .footer {
+    font-size: 0.9rem;
+  }
+  .footer__author svg {
+    width: 200px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .header {
+    padding-top: 150px;
+    padding-bottom: 50px;
+  }
+  .header__list {
+    display: block;
+  }
+  .header__item a {
+    padding: 17px 20px;
+  }
+  .header__sub-list {
+    top: 0;
+    right: 0;
+    left: unset;
+  }
+  .header__item:nth-child(2) .header__sub-list {
+    width: 160px;
+  }
+  .header__toggle {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 2;
+    display: block;
+    width: 70px;
+    height: 50px;
+    background-color: deepskyblue;
+    cursor: pointer;
+    border: none;
+  }
+  .header__toggle:hover,
+  .header__toggle:focus,
+  .header__toggle:active {
+    background-color: dodgerblue;
+    outline: none;
+  }
+  .header__wrapper--closed .header__toggle::before {
+    content: "";
+    position: absolute;
+    top: 15px;
+    left: 18px;
+    width: 36px;
+    height: 2px;
+    background-color: white;
+    box-shadow: 0 8px 0 0 white, 0 16px 0 0 white;
+  }
+  .header__wrapper--closed .header__toggle:active::before {
+    background-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 0 0 rgba(255, 255, 255, 0.3), 0 16px 0 0 rgba(255, 255, 255, 0.3);
+  }
+  .header__wrapper--opened .header__toggle {
+    top: 0;
+    right: auto;
+    left: 0;
+    border-bottom: 2px solid #e5e5e5;
+  }
+  .header__wrapper--opened .header__toggle::before,
+  .header__wrapper--opened .header__toggle::after {
+    content: "";
+    position: absolute;
+    top: 24px;
+    left: 15px;
+    width: 36px;
+    height: 2px;
+    background-color: white;
+  }
+  .header__wrapper--opened .header__toggle::before {
+    transform: rotate(45deg);
+    box-shadow: none;
+  }
+  .header__wrapper--opened .header__toggle::after {
+    transform: rotate(-45deg);
+  }
+  .header__wrapper--opened .header__toggle:active::before,
+  .header__wrapper--opened .header__toggle:active::after {
+    background-color: rgba(255, 255, 255, 0.3);
+  }
+  .header__wrapper--closed .header__item {
+    display: none;
+  }
+  .header__wrapper--closed .header__item--active {
+    display: block;
+  }
+  .header__wrapper--closed .header__item a {
+    justify-content: center;
+    margin-right: 70px;
+  }
+  .header__wrapper--opened .header__list {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 70px;
+    z-index: 10;
+    min-height: 28vh;
+    background-color: #fff;
+  }
+  .header__wrapper--opened .header__list::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    width: 7px;
+    height: 100%;
+    box-shadow: inset 4px 0 7px -2px rgba(0, 0, 0, 0.4);
+  }
+  .header__wrapper--opened .header__item {
+    border-bottom: 2px solid #e5e5e5;
+  }
+  .header--nojs {
+    padding-top: 0;
+  }
+  .header--nojs .header__nav {
+    position: static;
+    transform: none;
+    margin-bottom: 40px;
+  }
+  .header--nojs .header__toggle {
+    display: none;
+  }
+  .header--nojs .header__list {
+    min-height: 0;
+  }
+  .header--nojs .header__item {
+    display: block;
+    border-bottom: 2px solid #e5e5e5;
+  }
+  .header--nojs .header__item--active {
+    display: none;
+  }
+  .header--nojs .header__item a {
+    justify-content: flex-start;
+    margin-right: 0;
+    padding-right: 22px;
+    padding-left: 22px;
+  }
+  .header__title {
+    margin: 0 20px;
+    font-size: 1.8rem;
+  }
+  .header__text {
+    margin-right: 20px;
+    margin-left: 20px;
+    font-size: 0.9rem;
+  }
+  .homework {
+    width: 100%;
+    font-size: 0.9rem;
+  }
+  .homework:nth-child(4n - 2),
+  .homework:nth-child(4n - 1) {
+    background-color: #fff;
+    box-shadow:none;
+  }
+  .homework:nth-child(2n) {
+    margin-left: 0;
+    background-color: #f5f5f5;
+    box-shadow: 0 0 5px 3px #f5f5f5;
+  }
+  .homework__title {
+    font-size: 1.4rem;
+  }
+  .homework__examples {
+    display: flex;
+  }
+  .homework:nth-child(4n - 2) .homework__examples,
+  .homework:nth-child(4n - 1) .homework__examples {
+    box-shadow: 0 0 10px 3px #ddd;
+  }
+  .homework:nth-child(2n) .homework__examples {
+    box-shadow: 0 0 10px 3px #cdcdcd;
+  }
+  .homework__img {
+    margin: 0;
+    width: 60%;
+  }
+  .homework .homework__screen {
+    margin: 0;
+    width: 100%;
+  }
+  .footer {
+    padding-top: 28px;
+    padding-bottom: 20px;
+    font-size: 0.8rem;
+  }
+  .footer__wrapper {
+    flex-direction: column;
+  }
+  .footer__author svg {
+    margin-top: 15px;
+  }
+  .footer__author svg {
+    width: 200px;
   }
 }

@@ -7,137 +7,143 @@
     <title>Front-end Lab EPAM</title>
     <link rel="stylesheet" href="./FL11_HW11/homework/assets/material-icons/material-icons.css">
     <link rel="stylesheet" href="./assets/style.css">
+    <script src="src/script.js" defer></script>
   </head>
   <body>
     <div class="container">
-      <header class="header" id="header">
+      <header class="header header--nojs" id="header">
         <nav class="header__nav">
           <a class="header__logo" href="http://www.epam.com/" target="_blank">
             <img src="FL11_HW1/homework/logo.png" alt="Logotype EPAM"
                  width="120"/>
           </a>
-          <ul class="header__list">
-            <li class="header__item">
-              <a href="#header" class="header__link">Home</a>
-            </li>
-            <li class="header__item">
-              <a href="#" class="header__link">Presentation</a>
-              <ul class="header__sub-list">
-                <li class="header__sub-item">
-                  <a href="https://frontendlabepam.github.io/FL_Online/02_html/#1" target="_blank">
-                    1. HTML
-                  </a>
-                </li>
-                <li class="header__sub-item">
-                  <a href="https://frontendlabepam.github.io/FL_Online/03_css-basics" target="_blank">
-                    2. CSS basics
-                  </a>
-                </li>
-                <li class="header__sub-item">
-                  <a href="https://frontendlabepam.github.io/FL_Online/04_preprocessors/" target="_blank">
-                    3. Preprocessors
-                  </a>
-                </li>
-                <li class="header__sub-item">
-                  <a href="https://frontendlabepam.github.io/FL_Online/05_css-layouts" target="_blank">
-                    4. CSS Layouts
-                  </a>
-                </li>
-                <li class="header__sub-item">
-                  <a href="https://frontendlabepam.github.io/FL_Online/06_responsive-design" target="_blank">
-                    5. Responsive Web Design
-                  </a>
-                </li>
-                <li class="header__sub-item">
-                  <a href="https://frontendlabepam.github.io/FL_Online/07_intro-to-js" target="_blank">
-                    6. Introduction to JS
-                  </a>
-                </li>
-                <li class="header__sub-item">
-                  <a href="https://frontendlabepam.github.io/FL_Online/08_control-flow" target="_blank">
-                    7. Control flow
-                  </a>
-                </li>
-                <li class="header__sub-item">
-                  <a href="https://frontendlabepam.github.io/FL_Online/09_functions-basics/" target="_blank">
-                    8. Functions Basics
-                  </a>
-                </li>
-                <li class="header__sub-item">
-                  <a href="https://frontendlabepam.github.io/FL_Online/10_js-data-types/" target="_blank">
-                    9. JS Data Types
-                  </a>
-                </li>
-                <li class="header__sub-item">
-                  <a href="https://frontendlabepam.github.io/FL_Online/11_functions-advanced" target="_blank">
-                    10. Functions Advanced
-                  </a>
-                </li>
-                <li class="header__sub-item">
-                  <a href="https://frontendlabepam.github.io/FL_Online/12_dom/" target="_blank">
-                    11. DOM
-                  </a>
-                </li>
-                <li class="header__sub-item">
-                  <a href="https://frontendlabepam.github.io/FL_Online/13_bom" target="_blank">
-                    12. Window, BOM, RegExp
-                  </a>
-                </li>
-              </ul>
-            </li>
-            <li class="header__item">
-              <a href="#" class="header__link">Home works</a>
-              <ul class="header__sub-list">
-                <li class="header__sub-item">
-                  <a href="#FL11_HW1">FL11_HW-1</a>
-                </li>
-                <li class="header__sub-item">
-                  <a href="#FL11_HW2">FL11_HW-2</a>
-                </li>
-                <li class="header__sub-item">
-                  <a href="#FL11_HW3">FL11_HW-3</a>
-                </li>
-                <li class="header__sub-item">
-                  <a href="#FL11_HW4">FL11_HW-4</a>
-                </li>
-                <li class="header__sub-item">
-                  <a href="#FL11_HW5">FL11_HW-5</a>
-                </li>
-                <li class="header__sub-item">
-                  <a href="#FL11_HW6">FL11_HW-6</a>
-                </li>
-                <li class="header__sub-item">
-                  <a href="#FL11_HW7">FL11_HW-7</a>
-                </li>
-                <li class="header__sub-item">
-                  <a href="#FL11_HW8">FL11_HW-8</a>
-                </li>
-                <li class="header__sub-item">
-                  <a href="#FL11_HW9">FL11_HW-9</a>
-                </li>
-                <li class="header__sub-item">
-                  <a href="#FL11_HW10">FL11_HW-10</a>
-                </li>
-                <li class="header__sub-item">
-                  <a href="#FL11_HW11">FL11_HW-11</a>
-                </li>
-                <li class="header__sub-item">
-                  <a href="#FL11_HW12">FL11_HW-12</a>
-                </li>
-              </ul>
-            </li>
-            <li class="header__item">
-              <a href="#" class="header__link">Group works</a>
-              <ul class="header__sub-list">
-                <li class="header__sub-item">
-                  <a href="https://codepen.io/andreas-just/full/ewKQQP" target="_blank">FL11_GW-1</a>
-                </li>
-                <li class="header__sub-item">
-                  <a href="https://codepen.io/andreas-just/pen/oKGowK" target="_blank">FL11_GW-2</a>
-                </li>
-              </ul>
-            </li>
-          </ul>
+          <div class="header__wrapper header__wrapper--closed">
+            <button class="header__toggle" type="button">
+              <span class="visually-hidden">Открыть меню</span>
+            </button>
+            <ul class="header__list">
+              <li class="header__item header__item--active">
+                <a href="#" class="header__link" onclick="location.href='#header'">Home</a>
+              </li>
+              <li class="header__item">
+                <a href="#" class="header__link">Presentation</a>
+                <ul class="header__sub-list">
+                  <li class="header__sub-item">
+                    <a href="https://frontendlabepam.github.io/FL_Online/02_html/#1" target="_blank">
+                      1. HTML
+                    </a>
+                  </li>
+                  <li class="header__sub-item">
+                    <a href="https://frontendlabepam.github.io/FL_Online/03_css-basics" target="_blank">
+                      2. CSS basics
+                    </a>
+                  </li>
+                  <li class="header__sub-item">
+                    <a href="https://frontendlabepam.github.io/FL_Online/04_preprocessors/" target="_blank">
+                      3. Preprocessors
+                    </a>
+                  </li>
+                  <li class="header__sub-item">
+                    <a href="https://frontendlabepam.github.io/FL_Online/05_css-layouts" target="_blank">
+                      4. CSS Layouts
+                    </a>
+                  </li>
+                  <li class="header__sub-item">
+                    <a href="https://frontendlabepam.github.io/FL_Online/06_responsive-design" target="_blank">
+                      5. Responsive Web Design
+                    </a>
+                  </li>
+                  <li class="header__sub-item">
+                    <a href="https://frontendlabepam.github.io/FL_Online/07_intro-to-js" target="_blank">
+                      6. Introduction to JS
+                    </a>
+                  </li>
+                  <li class="header__sub-item">
+                    <a href="https://frontendlabepam.github.io/FL_Online/08_control-flow" target="_blank">
+                      7. Control flow
+                    </a>
+                  </li>
+                  <li class="header__sub-item">
+                    <a href="https://frontendlabepam.github.io/FL_Online/09_functions-basics/" target="_blank">
+                      8. Functions Basics
+                    </a>
+                  </li>
+                  <li class="header__sub-item">
+                    <a href="https://frontendlabepam.github.io/FL_Online/10_js-data-types/" target="_blank">
+                      9. JS Data Types
+                    </a>
+                  </li>
+                  <li class="header__sub-item">
+                    <a href="https://frontendlabepam.github.io/FL_Online/11_functions-advanced" target="_blank">
+                      10. Functions Advanced
+                    </a>
+                  </li>
+                  <li class="header__sub-item">
+                    <a href="https://frontendlabepam.github.io/FL_Online/12_dom/" target="_blank">
+                      11. DOM
+                    </a>
+                  </li>
+                  <li class="header__sub-item">
+                    <a href="https://frontendlabepam.github.io/FL_Online/13_bom" target="_blank">
+                      12. Window, BOM, RegExp
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li class="header__item">
+                <a href="#" class="header__link">Home works</a>
+                <ul class="header__sub-list">
+                  <li class="header__sub-item">
+                    <a href="#FL11_HW1">FL11_HW-1</a>
+                  </li>
+                  <li class="header__sub-item">
+                    <a href="#FL11_HW2">FL11_HW-2</a>
+                  </li>
+                  <li class="header__sub-item">
+                    <a href="#FL11_HW3">FL11_HW-3</a>
+                  </li>
+                  <li class="header__sub-item">
+                    <a href="#FL11_HW4">FL11_HW-4</a>
+                  </li>
+                  <li class="header__sub-item">
+                    <a href="#FL11_HW5">FL11_HW-5</a>
+                  </li>
+                  <li class="header__sub-item">
+                    <a href="#FL11_HW6">FL11_HW-6</a>
+                  </li>
+                  <li class="header__sub-item">
+                    <a href="#FL11_HW7">FL11_HW-7</a>
+                  </li>
+                  <li class="header__sub-item">
+                    <a href="#FL11_HW8">FL11_HW-8</a>
+                  </li>
+                  <li class="header__sub-item">
+                    <a href="#FL11_HW9">FL11_HW-9</a>
+                  </li>
+                  <li class="header__sub-item">
+                    <a href="#FL11_HW10">FL11_HW-10</a>
+                  </li>
+                  <li class="header__sub-item">
+                    <a href="#FL11_HW11">FL11_HW-11</a>
+                  </li>
+                  <li class="header__sub-item">
+                    <a href="#FL11_HW12">FL11_HW-12</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="header__item">
+                <a href="#" class="header__link">Group works</a>
+                <ul class="header__sub-list">
+                  <li class="header__sub-item">
+                    <a href="https://codepen.io/andreas-just/full/ewKQQP" target="_blank">FL11_GW-1</a>
+                  </li>
+                  <li class="header__sub-item">
+                    <a href="https://codepen.io/andreas-just/pen/oKGowK" target="_blank">FL11_GW-2</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
         </nav>
         <h1 class="header__title">Front-end Lab EPAM</h1>
         <p class="header__text">Training in the training center on the most trendy technologies
@@ -477,9 +483,16 @@
       </main>
 
       <footer class="footer">
+        <div class="footer__wrapper">
+          <p class="footer__text">Copyright &copy; 2019 Andreas Just</p>
+          <a href="https://github.com/Andreas-Just" target="_blank" class="footer__author">
+            <svg xmlns="http://www.w3.org/2000/svg" width="260px" height="45px" viewBox="-15 0 4560 770">
+              <path fill="#f5f5f5" d="M101 480c0,-125 47,-197 111,-197 15,0 19,4 19,16 0,8 -6,70 -9,196 0,15 -2,21 -8,21 -3,0 -18,-11 -49,-11 -33,0 -51,11 -56,11 -7,0 -8,-11 -8,-36zm675 -480c-25,0 -42,2 -53,13 -17,17 -21,66 -21,147 0,92 12,133 12,137 0,3 -3,5 -6,5 -4,0 -8,-3 -12,-7 -23,-16 -46,-25 -72,-25 -34,0 -53,13 -53,30 0,27 43,35 136,35 140,0 203,-53 203,-180 0,-80 -6,-126 -21,-142 -11,-11 -27,-13 -53,-13l-60 0zm502 99c-21,0 -35,0 -44,11 -10,12 -18,48 -18,106 0,30 3,46 3,49 0,5 -16,12 -34,12 -23,0 -32,-17 -32,-54 0,-29 2,-55 2,-78 0,-33 -12,-46 -46,-46l-98 0c-17,0 -27,3 -33,13 -6,11 -12,39 -12,83 0,93 38,137 122,137 44,0 83,-16 127,-40l2 -1c1,0 2,0 3,0 3,0 3,7 7,15 10,18 19,18 40,18l81 0c18,0 29,0 38,-8 12,-14 17,-42 17,-87 0,-65 -6,-105 -18,-119 -9,-11 -23,-11 -45,-11l-62 0zm179 190c0,24 51,43 147,43 109,0 164,-31 164,-95 0,-52 -36,-73 -109,-79 -34,-3 -52,-2 -52,-22 0,-14 13,-23 39,-23 28,0 48,5 72,19 10,6 16,13 24,13 9,0 15,-6 15,-14 0,-19 -45,-40 -121,-40 -117,0 -173,27 -173,93 0,51 35,65 107,77 35,5 56,4 56,24 0,17 -12,22 -38,22 -32,0 -60,-4 -87,-19 -12,-6 -19,-13 -29,-13 -9,0 -15,5 -15,14zm575 -57c1,-13 2,-28 2,-44 0,-24 -3,-44 -3,-61 0,-11 3,-16 12,-16 8,0 18,4 28,4 11,0 18,-7 18,-20 0,-14 -7,-21 -20,-21 -14,0 -26,5 -33,5 -13,0 -6,-17 -13,-42 -7,-26 -20,-45 -42,-33l-41 23 -41 -23c-26,-14 -38,10 -44,43 -4,21 1,32 -9,32 -8,0 -21,-6 -38,-6 -12,0 -20,8 -20,20 0,13 8,21 20,21 9,0 18,-2 28,-2 8,0 11,2 11,10 0,3 -1,8 -1,14 0,39 1,70 3,95 -28,7 -41,28 -47,90 -6,59 0,114 -14,114 -2,0 -4,0 -5,-1l-4 -2c-37,-19 -79,-36 -144,-36 -62,0 -111,11 -154,42 -48,34 -75,87 -75,145 0,53 24,104 68,140 39,32 88,47 148,47 66,0 126,-18 176,-50l3 -3c2,0 3,-1 4,-1 2,0 4,1 5,4l2 3c13,34 30,35 66,35l120 0c28,0 47,-1 58,-19 20,-31 27,-94 27,-194 0,-85 -3,-177 -9,-224 -4,-33 -11,-56 -19,-70 -6,-11 -13,-16 -23,-19zm-1786 21c-104,0 -165,23 -212,102 -31,54 -34,136 -34,254l0 86c0,54 6,75 49,75 23,0 40,-13 44,-30 9,-35 4,-89 8,-157 1,-17 2,-25 12,-25 9,0 21,11 47,11 35,0 52,-13 56,-13 4,0 4,4 4,12l0 23c0,75 11,124 26,148 11,18 31,19 59,19l156 0c32,0 51,-5 63,-24 18,-27 23,-94 23,-205 0,-144 -7,-228 -34,-256 -17,-17 -43,-20 -82,-20l-185 0zm608 505c28,0 46,-1 58,-13 21,-22 27,-70 27,-146 0,-64 -6,-94 -6,-99 0,-8 27,-19 52,-19 39,0 52,27 52,85 0,44 -4,85 -4,121 0,50 20,71 72,71l156 0c17,0 29,0 39,-7 15,-13 28,-62 28,-142 0,-148 -57,-213 -190,-213 -61,0 -118,16 -177,49l-26 15c-1,1 -3,1 -5,1 -2,0 -2,-2 -3,-6l-2 -4c-16,-43 -30,-44 -83,-44l-102 0c-36,0 -56,1 -71,27 -12,21 -20,79 -20,176 0,69 6,113 26,135 13,13 30,13 59,13l120 0zm940 -289c-2,37 -3,66 -3,89 0,35 3,75 3,122 0,12 -7,15 -24,15 -32,0 -70,-51 -70,-121 0,-71 31,-114 67,-114 10,0 19,3 27,9zm593 289c28,0 46,-1 59,-13 21,-22 26,-70 26,-146 0,-53 -2,-80 -2,-86 0,-22 26,-36 68,-36 35,0 58,25 93,25 37,0 57,-18 57,-46 0,-34 -31,-60 -83,-60 -49,0 -87,22 -130,61 -5,6 -8,9 -11,9 -2,0 -3,-2 -4,-7l-1 -3c-12,-47 -33,-49 -84,-49l-101 0c-37,0 -57,1 -72,27 -11,21 -20,79 -20,176 0,69 6,113 26,135 13,13 31,13 59,13l120 0zm689 -321c23,0 40,23 40,60 0,43 -23,76 -49,76 -23,0 -31,-14 -31,-46 0,-59 15,-90 40,-90zm-374 144c0,49 29,100 81,136 50,33 120,53 197,53 152,0 232,-54 232,-87 0,-7 -5,-13 -13,-13 -11,0 -35,42 -86,42 -41,0 -75,-39 -75,-89 0,-17 2,-26 9,-26 6,0 21,5 47,5 89,0 139,-36 139,-92 0,-70 -83,-114 -241,-114 -80,0 -151,19 -201,50 -59,36 -89,85 -89,135zm1071 -174l-12 0c-34,0 -47,2 -65,27l-4 6c-1,1 -4,3 -6,3 -1,0 -4,-1 -5,-2l-7 -3c-46,-27 -105,-42 -155,-42 -59,0 -110,15 -155,46 -47,33 -73,85 -73,142 0,53 23,103 67,139 40,32 87,47 148,47 65,0 127,-18 176,-50l3 -3c2,0 3,-1 4,-1 2,0 4,1 5,4l2 3c13,34 30,35 66,35l118 0c29,0 46,0 59,-13 19,-22 27,-65 27,-135 0,-101 -8,-163 -28,-186 -14,-17 -35,-17 -69,-17l-96 0zm-94 62c-3,37 -4,66 -4,89 0,35 4,75 4,122 0,12 -8,15 -25,15 -32,0 -70,-51 -70,-121 0,-71 31,-114 67,-114 11,0 20,3 28,9zm371 235c0,37 80,66 229,66 170,0 255,-47 255,-148 0,-81 -55,-113 -170,-123 -53,-5 -80,-3 -80,-34 0,-22 21,-35 60,-35 45,0 75,7 113,29 15,9 24,19 38,19 14,0 23,-9 23,-21 0,-29 -70,-62 -189,-62 -182,0 -270,43 -270,144 0,80 54,102 167,120 55,8 87,7 87,39 0,25 -18,34 -59,34 -49,0 -93,-7 -135,-30 -18,-10 -29,-21 -46,-21 -14,0 -23,8 -23,23z"/>
+            </svg>
+          </a>
+        </div>
 
       </footer>
-      <script src="src/script.js"></script>
     </div>
 
   </body>
